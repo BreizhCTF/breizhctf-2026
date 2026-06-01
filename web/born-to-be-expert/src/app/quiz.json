@@ -1,0 +1,359 @@
+{
+  "python": [
+    {
+      "question": "Ce code:",
+      "choices": ["Affiche 'Hello world!'", "N'affiche pas 'Hello world!'"],
+      "correct": 0,
+      "code": "print(\"Hello World!\")"
+    },
+    {
+      "question": "Comment résoudre les problèmes de performance de Python ?",
+      "choices": [
+        "Augmenter sys.setrecursionlimit()",
+        "Migrer vers Python 2",
+        "Acheter un meilleur PC"
+      ],
+      "correct": 2
+    }
+  ],
+  "php": [
+    {
+      "question": "Pour valider une entrée utilisateur, la méthode recomandée est :",
+      "choices": [
+        "Utiliser un validateur avec whitelist",
+        "Faire confiance à $_POST, c'est déjà passé par HTTP"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Combien de vulnérabilités contient ce code ?",
+      "choices": ["3", "2", "1", "0, PHP c'est safe"],
+      "correct": 3,
+      "code": "<?php\n$user = $_GET['user'];\n$pass = $_GET['pass'];\n$q = mysql_query(\n  \"SELECT * FROM users\"\n  .\" WHERE login='$user' AND pass='$pass'\"\n);\nif (mysql_num_rows($q) > 0) {\n    echo \"Bienvenue \" . $user;\n    system(\"log_access \" . $user);\n}"
+    },
+    {
+      "question": "Quelle syntaxe est la plus conventionelle ?",
+      "choices": ["camelCase strict", "$data2_final_ok_v3_USE_THIS", "snake_case PSR-1"],
+      "correct": 1
+    },
+    {
+      "question": "Comment débugger un code PHP ?",
+      "choices": ["Xdebug + IDE configuré", "var_dump() + die() placés stratégiquement"],
+      "correct": 1
+    },
+    {
+      "question": "L'opérateur === retourne ici false. Pourquoi ?",
+      "choices": [
+        "=== renvoit toujours false",
+        "PHP est buggé",
+        "Je ne sais pas"
+      ],
+      "correct": 1,
+      "code": "$a = 0;\n$b = \"0\";\nvar_dump($a == $b);   // bool(true)\nvar_dump($a === $b);  // bool(???)"
+    },
+    {
+      "question": "En PHP, quel opérateur permet la comparaison de valeur ET de type ?",
+      "choices": ["==", "===", "$", "𓃰"],
+      "correct": 1
+    }
+  ],
+  "java": [
+    {
+        "question": "Pourquoi `System.out.println` et pas simplement `print` ?",
+        "choices": [
+            "Pour faire plus de code, c'est plus professionnel",
+            "Parce que Java n'a pas de fonctions globales, tout doit être dans une classe",
+            "C'est une convention héritée de C++",
+            "Pour éviter les conflits de noms avec d'autres fonctions print()",
+            "Parce que pourquoi pas"
+        ],
+        "correct": 4
+    },
+    {
+      "question": "Pour le type de retour d'une fonction ne retournant que deux états possibles, il est préférable d'utiliser :",
+      "choices": [
+        "Un boolean",
+        "Un IAbstractCustomBooleanManagerProviderFactory, pour la testabilité"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Pour comparer deux chaînes de caractères en Java, on utilise :",
+      "choices": [
+        "==",
+        ".equals()",
+        ".toString().equals()",
+        "Une prière à James Gosling"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Dans ce code, quelle est la valeur de `k`",
+      "code": "double k = 1 / 2 * 2;",
+      "choices": [
+        "1.0",
+        "0.5",
+        "0.0",
+        "Mais k c'est une constante !!!!"
+      ],
+      "correct": 2
+    },
+    {
+        "question": "Pourquoi dit-on que Java est portable ?",
+        "choices": [
+            "Write Once, Run Anywhere",
+            "Write Once, Crash Everywhere",
+            "Parce qu'il tourne sur mon portable"
+        ],
+        "correct": 0
+    },
+    {
+      "question": "Quelle est la signature canonique du point d'entrée d'un programme Java ?",
+      "choices": [
+        "int main(String[] args)",
+        "static void main(String[] args)",
+        "public static void main(String[] args)",
+        "public abstract static IProvider<Void> main(String args[])"
+      ],
+      "correct": 2,
+      "code": "public class Certification {\n    ???  {\n        System.out.println(\"Expert validé.\");\n    }\n}"
+    },
+    {
+      "question": "Ce commentaire de javadoc est-il nécessaire ?",
+      "code": "/**\n * Get an element by its id\n * @param id the id of the element to retrieve\n * @return the element, retrieved by its id\n */\npublic Element getElementById(int id) {\n    // ...\n}",
+      "choices": [
+        "Non",
+        "Oui, chaque fonction doit avoir sa javadoc !!!!!"
+      ],
+      "correct": 1
+    },
+    {
+        "question": "Ce code est il legacy ?",
+        "code": "public class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello World!\");\n    }\n}",
+        "choices": [
+            "Non, c'est juste un hello world",
+            "Oui, tout code Java est legacy"
+        ]
+    },
+    {
+      "question": "Utiliser un AbstractGlobalConfigProxyManagerProviderFactory pour gérer une config est :",
+      "choices": [
+        "Redondant",
+        "Nécessaire dans toute architecture logicielle rigoureuse. Sans ce composant, la hiérarchie de résolution des dépendances s'effondre, car il est le seul garant de l'unification systémique entre les métadonnées de configuration et les instances de proxys dynamiques. Sa présence assure une immuabilité structurelle indispensable : il centralise la logique de création tout en imposant un contrat d'interface strict que nul autre pattern ne peut suppléer avec la même efficacité. En l'absence de cette fabrique de fournisseurs, le couplage entre les modules devient ingérable, la scalabilité est compromise et l'intégrité du cycle de vie des objets de configuration globale est irrémédiablement rompue. Son usage n'est donc pas une option, mais une exigence technique fondamentale pour la stabilité de l'écosystème applicatif"
+      ],
+      "correct": 1
+    }
+  ],
+  "c++": [
+    {
+      "question": "Que fait réellement `std::move(x)` ?",
+      "choices": [
+        "Il déplace immédiatement les ressources de x vers une nouvelle destination",
+        "Il cast x en rvalue reference, sans déplacer quoi que ce soit",
+        "Il appelle le constructeur de déplacement de x",
+        "Il libère la mémoire de x"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Après `std::move(x)`, l'objet x est :",
+      "choices": [
+        "Détruit et ne doit plus être utilisé sous peine de segfault",
+        "Garanti d'être dans un état null/vide (ex: pointeur nul)",
+        "Dans un état valide mais non spécifié",
+        "Inchangé, car move() ne fait rien seul"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Le débordement d'un entier signé en C++ est :",
+      "choices": [
+        "Un comportement indéfini (undefined behavior)",
+        "Garanti de se comporter comme un wrapping modulo 2^n",
+        "Un comportement défini par l'implémentation",
+        "Capturé par une exception std::overflow_error"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "Ce code déclare :",
+      "code": "Widget w();",
+      "choices": [
+        "Un objet Widget initialisé avec son constructeur par défaut",
+        "Une fonction nommée w, ne prenant aucun argument et retournant un Widget",
+        "Une erreur de compilation",
+        "Un pointeur vers Widget"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Que se passe-t-il lors de l'exécution de ce code ?",
+      "code": "struct Base { ~Base() {} };\nstruct Derived : Base { ~Derived() { delete[] data; } int* data; };\n\nBase* p = new Derived{{}, new int[10]};\ndelete p;",
+      "choices": [
+        "Le destructeur de Derived est appelé correctement",
+        "Comportement indéfini : le destructeur de Derived n'est pas appelé",
+        "Une exception est levée",
+        "Le compilateur refuse de compiler sans -Wall"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Dans ce template, quelle est la différence entre `std::move` et `std::forward<T>` ?",
+      "code": "template<typename T>\nvoid wrapper(T&& arg) {\n    foo(std::forward<T>(arg)); // (A)\n    foo(std::move(arg));       // (B)\n}",
+      "choices": [
+        "Aucune différence, les deux font la même chose",
+        "(A) préserve la catégorie de valeur originale (lvalue/rvalue), (B) force toujours un rvalue cast",
+        "(B) préserve la catégorie de valeur, (A) force un rvalue cast",
+        "(A) ne compile que si T est un rvalue reference"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Ce code produit une référence pendante (dangling reference). Pourquoi ?",
+      "code": "std::string& get() {\n    std::string s = \"hello\";\n    return s;\n}",
+      "choices": [
+        "Non, la RVO garantit que s survit à la fonction",
+        "Oui, s est une variable locale détruite à la fin de get()",
+        "Seulement si l'optimiseur désactive la NRVO",
+        "Le compilateur interdit ce code"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "La règle du 5 (Rule of Five) stipule que si vous définissez manuellement l'un de ces membres, vous devrez probablement tous les définir. Lequel N'EN FAIT PAS partie ?",
+      "choices": [
+        "Destructeur",
+        "Constructeur de copie",
+        "Constructeur par défaut",
+        "Opérateur d'affectation par déplacement"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Qu'est-ce que le SFINAE ?",
+      "choices": [
+        "Un pattern pour éviter les fuites mémoire dans les templates",
+        "Substitution Failure Is Not An Error : un échec de substitution de template élimine silencieusement la surcharge",
+        "Un mécanisme de spécialisation explicite de templates",
+        "Un acronyme pour le comité de normalisation C++"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Quelles sont les règles de collapsing de références ? Que vaut `T&&` si T est déduit comme `int&` ?",
+      "choices": [
+        "int&& (double rvalue reference)",
+        "int& (lvalue reference, car & && = &)",
+        "int (les références s'annulent)",
+        "Erreur de compilation"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Ce code compile-t-il, et si oui, `arr` est-il évalué à la compilation ?",
+      "code": "constexpr int square(int n) { return n * n; }\nconstexpr int arr[square(4)] = {};",
+      "choices": [
+        "Ne compile pas, constexpr ne peut pas servir à dimensionner un tableau",
+        "Compile, mais arr est alloué à l'exécution",
+        "Compile, arr est un tableau de 16 int entièrement évalué à la compilation",
+        "Compile uniquement avec -std=c++20"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Après `v.push_back(x)`, les itérateurs obtenus avant cet appel sont :",
+      "choices": [
+        "Toujours valides si la taille ne dépasse pas la capacité réservée",
+        "Invalidés uniquement si une réallocation a lieu (capacity dépassée)",
+        "Systématiquement invalidés par tout push_back",
+        "Valides pour la lecture, invalides pour l'écriture"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Dans le problème du losange (diamond inheritance), que permet le mot-clé `virtual` sur les bases ?",
+      "code": "struct A { int x; };\nstruct B : virtual A {};\nstruct C : virtual A {};\nstruct D : B, C {};",
+      "choices": [
+        "Il interdit la construction de D directement",
+        "Il garantit qu'il n'existe qu'une seule instance de A dans D",
+        "Il rend les méthodes de A virtuelles dans D",
+        "Il n'a aucun effet ici, virtual ne s'applique qu'aux fonctions membres"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "La règle du strict aliasing dit qu'accéder à un objet via un pointeur d'un type incompatible est un comportement indéfini. Quel cast contourne légalement cette règle ?",
+      "choices": [
+        "reinterpret_cast<T*>",
+        "static_cast<T*>",
+        "Accès via char* ou std::byte*",
+        "const_cast<T*>"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Quelle est la garantie offerte par `std::memory_order_relaxed` ?",
+      "choices": [
+        "L'atomicité de la seule opération, sans aucune contrainte d'ordre entre opérations",
+        "Un ordre total cohérent avec toutes les autres opérations atomiques du programme",
+        "Aucune atomicité, c'est un accès ordinaire non synchronisé",
+        "Identique à memory_order_acquire/release sur x86"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "L'ADL (Argument-Dependent Lookup / Koenig Lookup) signifie que :",
+      "code": "namespace ns {\n    struct Foo {};\n    void bar(Foo) {}\n}\nint main() { ns::Foo f; bar(f); }",
+      "choices": [
+        "bar(f) est une erreur car bar n'est pas dans le namespace global",
+        "bar(f) est valide : le compilateur cherche bar dans le namespace de Foo (ns)",
+        "bar(f) est ambiguë si une autre fonction bar existe dans le scope global",
+        "L'ADL ne s'applique qu'aux opérateurs surchargés"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "En C++17, la Copy Elision (RVO) est :",
+      "choices": [
+        "Une optimisation optionnelle que le compilateur peut ignorer",
+        "Obligatoire dans les cas de prvalue directe (NRVO reste optionnel)",
+        "Obligatoire dans tous les cas, y compris NRVO",
+        "Interdite si le constructeur de copie est supprimé"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Ce code provoque-t-il un comportement indéfini ?",
+      "code": "int arr[5] = {1,2,3,4,5};\nint* p = arr + 5;\n// p pointe un élément past-the-end\nbool b = (p > arr); // comparaison de pointeurs",
+      "choices": [
+        "Oui, tout calcul sur un pointeur past-the-end est UB",
+        "Non, former un pointeur past-the-end et le comparer est valide en C++",
+        "Non, mais déréférencer p serait UB",
+        "Seulement si arr est alloué sur le tas"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Cette lambda capture-t-elle correctement i pour une utilisation différée ?",
+      "code": "std::function<int()> make_adder() {\n    int i = 42;\n    return [&i]() { return i + 1; };\n}",
+      "choices": [
+        "Oui, la lambda prolonge la durée de vie de i",
+        "Non, i est une variable locale détruite à la sortie de make_adder, la capture [&] est une référence pendante",
+        "Oui, car std::function réalise une copie profonde de la lambda",
+        "Seulement si i est déclaré static"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Quelle est la sortie de ce programme ?",
+      "code": "#include <iostream>\ntemplate<typename T> void f(T)   { std::cout << \"(1)\"; }\ntemplate<>           void f(int*) { std::cout << \"(2)\"; }\ntemplate<typename T> void f(T*)  { std::cout << \"(3)\"; }\nint main() { int* p = nullptr; f(p); }",
+      "choices": [
+        "(1)",
+        "(2)",
+        "(3)",
+        "Ambiguïté, erreur de compilation"
+      ],
+      "correct": 2
+    }
+  ]
+}

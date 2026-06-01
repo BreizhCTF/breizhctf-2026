@@ -1,0 +1,59 @@
+name: "Linkedin ou Interpol"
+author: "MigatteNoChauvui"
+category: OSINT
+description: |-
+    ![BZH](https://media.tenor.com/Ernwb9vLPDEAAAAC/blinkie-interpol.gif)
+
+    Votre test débute avec la photographie ci-jointe.
+
+    Une fois la personne identifiée, votre enquête devra se concentrer sur l'entreprise à laquelle cette personne est liée et plus particulièrement à son implantation en France, car une branche parisienne liée à cette organisation a existé.
+
+    Vous devez retrouver le prénom du gérant de la structure parisienne ainsi que le nombre de parts que son associé a obtenu lors de la création de cette dernière.
+
+    Format du flag: `BZHCTF{prénom_nombre}`
+
+    Auteur : [Migatte No Chauvui](https://discord.com/users/390093857297137666)
+
+attribution: 'Auteur : [Migatte No Chauvui](https://discord.com/users/390093857297137666)'
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/image.png
+    - files/Lore.pdf
+
+flags:
+    - content: BZHCTF{feiluan_50}
+      type: static
+      data: case_insensitive
+
+# Dépendence avec d'autres challenges
+requirements:
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+
+# Les topics ne sont visibles que par les admins uniquement
+topics: []
+
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+version: "0.1"

@@ -1,0 +1,58 @@
+name: "Allo Papa Tango Charlie"
+author: "Korabal"
+category: Crypto
+description: |-
+    ![Bonheur](https://media.tenor.com/VhCWjJwTXNAAAAAi/happy-happy-happy.gif)
+
+    Je suis le représentant de BonheurClientService, sous-traitant du service client d'un opérateur bien côté souhaitant rester anonyme. Pour estimer au mieux le besoin du client, réduire la pression sur le service client, et ainsi faire converger l'expérience utilisateur et l'appréciation consommateur, nous avons mis au point grâce à des recherches approfondies un nouveau système de priorisation des demandes.
+    Félicitation, vous faites partie du panel de pré-évaluation du produit ! Quelle chance !
+
+    Pour toute remarques, remerciements, ou tout autre retour, n'hesitez pas à nous contacter à `nepasrepondre@noreply.out`.
+
+    Auteur : [Korabal](https://discord.com/users/1362851325615800573)
+
+
+attribution: 'Auteur : [Korabal](https://discord.com/users/1362851325615800573)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+connection_info: nc allo-papa-tango-charlie.chall.ctf.bzh 1337
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{en_renseignant_ce_flag_je_certifie_ne_pas_avoir_utilise_de_LLM}
+
+# Les topics ne sont visibles que par les admins
+topics:
+  - user-controlled input
+  - involutive operation
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Crypto
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/allo_papa_tango_charlie.py
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

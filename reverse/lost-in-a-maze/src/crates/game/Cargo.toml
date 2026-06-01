@@ -1,0 +1,8 @@
+[package]
+name = "game"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+rkyv = { version = "0.8.14", features = ["std"] }
+rand = { version = "0.9.2" }

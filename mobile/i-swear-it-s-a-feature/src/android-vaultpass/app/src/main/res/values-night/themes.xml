@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.VaultPass" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/vault_primary</item>
+        <item name="colorPrimaryVariant">@color/vault_primary</item>
+        <item name="colorOnPrimary">@color/vault_text</item>
+        <item name="colorSecondary">@color/vault_accent</item>
+        <item name="colorSecondaryVariant">@color/vault_accent_dark</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:colorBackground">@color/vault_bg</item>
+        <item name="colorSurface">@color/vault_surface</item>
+        <item name="colorOnSurface">@color/vault_text</item>
+        <item name="android:statusBarColor">@color/vault_bg</item>
+        <item name="android:navigationBarColor">@color/vault_bg</item>
+        <item name="android:windowBackground">@color/vault_bg</item>
+    </style>
+</resources>

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+
+# Server runtime
+src/server/uploads/
+src/server/data/
+
+# SQLite
+*.db
+*.db-journal
+
+# Android symlink
+src/android
+
+# Docker (WIP, pas encore testé)
+src/docker-compose.yml
+
+# APK builds
+dist/*.apk
+
+# IDE
+.idea/
+*.iml
+.vscode/

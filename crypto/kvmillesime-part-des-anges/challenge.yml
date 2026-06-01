@@ -1,0 +1,61 @@
+name: "KVMillésime - La part des Anges [3/3]"
+author: "Korabal"
+category: Crypto
+description: |-
+    ![ToTheMoon](https://media.tenor.com/gfSWsxaDN78AAAAC/tenor.gif)
+
+    L'intégralité de la liquidité de notre glorieux PranaToken, vers mes comptes offshore rapatrier tu devras, ou bien ta véritable identité aux autorités judiciaires avec un grand sourire je fuiterai.
+
+    *Note: pas de dépendances techniques entre les challenges. Juste du lore.*
+
+    Auteur : [Korabal](https://discord.com/users/1362851325615800573)
+
+attribution: 'Auteur : [Korabal](https://discord.com/users/1362851325615800573)'
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/README.md
+    - files/sources.zip
+
+flags:
+    - BZHCTF{Th3_M0n3r0_I5_Y0urs_L3ts_Dr1nk_T0_V1nc3}
+
+# Dépendence avec d'autres challenges
+# requirements:
+#     - "Warmup"
+#     - "Are you alive"
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Difficile
+    - Virtualisation
+    - RSA
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - TLB mismatch
+    - Signature forgery
+
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+extra:
+    template_name: kvmillesime-part-des-anges
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+# connection_info: ""
+
+version: "0.1"

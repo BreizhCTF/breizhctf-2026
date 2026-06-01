@@ -1,0 +1,49 @@
+#AttachmentPreview {
+    display: none;
+    padding: 8px 12px;
+    background: #f0f2f5;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    align-items: center;
+    justify-content: space-between;
+}
+#AttachmentPreview.visible {
+    display: flex;
+}
+.attachment-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+}
+.attachment-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+.remove-attachment {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #dc3545;
+    padding: 4px;
+}
+.message-attachment {
+    margin-top: 5px;
+}
+.message-attachment img {
+    max-width: 100%;
+    border-radius: 8px;
+    max-height: 300px;
+}
+.message-attachment-file {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.05); 
+    padding: 8px; 
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+}

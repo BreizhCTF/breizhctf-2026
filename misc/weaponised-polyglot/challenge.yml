@@ -1,0 +1,49 @@
+name: "Weaponised Polyglot"
+author: "Shynif"
+category: Misc
+description: |-
+    ![Langue_signes_bon_courage](https://media.tenor.com/TFosZJ8laCsAAAAC/courage-bon-courage.gif)
+
+    Il y a tellements de si beaux langages de programmation dans ce monde ♡ ₍₍⚞(˶˃ ꒳ ˂˶)⚟⁾⁾
+
+    Et chacun a en plus ses petites particularités qui n'attendent qu'à être exploitées ദ്ദി(˵ •̀ ᴗ - ˵ ) ✧
+
+    Auteur : [Shynif](https://discord.com/users/387295848574353409)
+
+
+attribution: 'Auteur : [Shynif](https://discord.com/users/387295848574353409)'
+# Liste des fichiers à fournirs aux joueurs
+flags:
+    - BZHCTF{G0D_bl3ss_7h3r3_w45_n0_3s0L4n9_1n_7he_m1x}
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - Polyglotte
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - runners
+    - python
+    - polyglotte
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    template_name: weaponised-polyglot
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+# connection_info: https://exemple-web.chall.ctf.bzh
+
+version: "0.1"

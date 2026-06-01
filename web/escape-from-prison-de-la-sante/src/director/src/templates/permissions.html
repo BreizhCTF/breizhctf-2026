@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Permissions de sortie — Direction{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h2>Permissions de sortie</h2>
+  <p>Validation des demandes de permission temporaire</p>
+</div>
+
+<div class="flex gap-2 mb-6">
+  <a href="?status=pending" class="btn {{ 'btn-primary' if current_status == 'pending' else 'btn-ghost' }}">En attente</a>
+  <a href="?status=approved" class="btn {{ 'btn-primary' if current_status == 'approved' else 'btn-ghost' }}">Approuvées</a>
+  <a href="?status=denied" class="btn {{ 'btn-primary' if current_status == 'denied' else 'btn-ghost' }}">Refusées</a>
+</div>
+
+<div class="card">
+  {% if requests %}
+  {% for req in requests %}
+  <div style="padding: 16px; border-bottom: 1px solid var(--surface2);">
+    <div class="flex items-center justify-between mb-4" style="margin-bottom: 12px;">
+      <div>
+        <span class="mono text-muted" style="font-size: 12px;">#{{ req.id }}</span>
+        <span style="margin: 0 8px; color: var(--border)">·</span>
+        <span style="font-size: 14px; font-weight: 600;">Détenu #{{ req.inmate_id }}</span>
+      </div>
+      <span class="badge {{ 'badge-yellow' if req.status == 'pending' else ('badge-green' if req.status == 'approved' else 'badge-red') }}">
+        {{ req.status }}
+      </span>
+    </div>
+    <p style="font-size: 14px; margin-bottom: 8px; color: var(--text-muted);">{{ req.reason }}</p>
+    <div class="flex gap-3 mb-4" style="font-size: 12px; color: var(--text-muted);">
+      <span>Du <strong class="mono">{{ req.requested_start }}</strong></span>
+      <span>au <strong class="mono">{{ req.requested_end }}</strong></span>
+    </div>
+    {% if req.status == 'pending' %}
+    <form method="post" action="{{ url_for('permissions.decide', request_id=req.id) }}">
+      <div class="form-group">
+        <label>Notes (optionnel)</label>
+        <textarea name="notes" rows="2" placeholder="Observations du directeur..."></textarea>
+      </div>
+      <div class="flex gap-2">
+        <button name="decision" value="approved" type="submit" class="btn btn-success btn-sm">Approuver</button>
+        <button name="decision" value="denied" type="submit" class="btn btn-danger btn-sm">Refuser</button>
+      </div>
+    </form>
+    {% elif req.director_notes %}
+    <div style="font-size: 13px; background: var(--surface2); padding: 8px 12px; border-radius: 6px; color: var(--text-muted);">
+      {{ req.director_notes }}
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+  {% else %}
+  <p class="text-muted" style="text-align:center; padding: 24px; font-size: 14px;">Aucune demande</p>
+  {% endif %}
+</div>
+{% endblock %}

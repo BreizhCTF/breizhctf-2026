@@ -1,0 +1,6 @@
+Flask
+flask-sock
+python-dotenv
+playwright
+gunicorn
+gevent

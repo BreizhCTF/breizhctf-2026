@@ -1,0 +1,11 @@
+src/guest/init
+src/guest/initramfs
+src/guest/rootfs.cpio
+src/for_dev
+snap.qcow2
+vmlinuz-virt
+
+old_src
+src/build
+
+*/.DS_Store

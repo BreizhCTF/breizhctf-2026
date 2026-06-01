@@ -1,0 +1,51 @@
+name: "Exemple TCP"
+author: "Maëlle"
+category: Exemple
+description: |-
+    ![Cat](https://media.tenor.com/-WCbK43rv2MAAAAd/kotique-cat-tongue.gif)
+
+    Balbabla
+attribution: 'Auteur : [La Brosse Adam](https://x.com/adam_le_bon)'
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/challenge
+flags:
+    - BZHCTF{exemple_tcp}
+
+# Dépendence avec d'autres challenges
+requirements:
+    - "Warmup"
+    - "Are you alive"
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+    - C
+    - Reverse
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - information disclosure
+    - buffer overflow
+    - memory forensics
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+connection_info: nc exemple-tcp.chall.ctf.bzh 1337
+
+version: "0.1"

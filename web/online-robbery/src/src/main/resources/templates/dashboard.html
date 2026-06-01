@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunely — Tableau de bord</title>
+    <link rel="icon" type="image/svg+xml" href="/img/thunely-mark.svg">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="dashboard-shell">
+    <div class="page-orbs page-orbs--dashboard">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <header class="dashboard-topbar">
+        <a href="/dashboard" class="brand-mark brand-mark--light" aria-label="Tableau de bord Thunely">
+            <span class="brand-mark__icon">
+                <img src="/img/thunely-mark.svg" alt="" aria-hidden="true">
+            </span>
+            <span class="brand-mark__text">Thunely</span>
+        </a>
+
+        <div class="dashboard-topbar__meta">
+            <div class="dashboard-user-chip">
+                <span class="dashboard-user-chip__label">Connecté en tant que</span>
+                <strong th:text="${user.username}">Utilisateur</strong>
+            </div>
+            <a href="/logout" class="button button--ghost button--small">Déconnexion</a>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="dashboard-summary" data-reveal>
+            <section class="dashboard-hero">
+                <div class="dashboard-hero__copy">
+                    <h1>Bonjour <span th:text="${user.username}">Utilisateur</span>, tout est prêt.</h1>
+                    <p>Vos finances, votre activité récente et votre progression premium sont réunies dans un espace plus lisible et plus efficace.</p>
+                </div>
+            </section>
+
+            <article class="glass-card overview-balance overview-balance--hero">
+                <div class="overview-balance__top">
+                    <span class="muted-label">Solde disponible</span>
+                </div>
+                <h2 th:text="${user.balance} + ' €'">0.00 €</h2>
+                <p>Montant actuellement disponible sur votre compte.</p>
+            </article>
+        </section>
+
+        <section class="dashboard-grid dashboard-grid--compact">
+            <article class="glass-card transfer-card" data-reveal>
+                <div class="card-heading">
+                    <h2>Effectuer un virement</h2>
+                </div>
+
+                <div th:if="${error}" class="alert alert--danger" th:text="${error}"></div>
+
+                <form action="/transfer" method="post" class="form-stack">
+                    <div class="field-group">
+                        <label for="recipientUsername">Destinataire</label>
+                        <input type="text" id="recipientUsername" name="recipientUsername" required placeholder="Nom d'utilisateur du destinataire">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="amount">Montant (€)</label>
+                        <input type="number" id="amount" name="amount" required min="0.01" step="0.01" placeholder="0.00">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Motif du virement"></textarea>
+                    </div>
+
+                    <button type="submit" class="button button--primary button--block">Envoyer le virement</button>
+                </form>
+            </article>
+
+            <article class="glass-card activity-card" data-reveal>
+                <div class="card-heading">
+                    <h2>Transactions récentes</h2>
+                </div>
+
+                <div class="activity-list">
+                    <article class="activity-row" th:each="tView : ${transactions}">
+                        <div class="activity-row__identity">
+                            <span class="avatar-badge"
+                                  th:classappend="${tView.isDebit} ? ' avatar-badge--danger' : ' avatar-badge--success'"
+                                  th:text="${#strings.substring(tView.otherUser, 0, 1).toUpperCase()}">U</span>
+                            <div>
+                                <h3 th:text="${tView.otherUser}">Autre utilisateur</h3>
+                                <p th:text="${tView.transaction.message}">Message</p>
+                            </div>
+                        </div>
+                        <div class="activity-row__values">
+                            <strong th:classappend="${tView.isDebit} ? ' amount--negative' : ' amount--positive'"
+                                    th:text="${(tView.isDebit ? '-' : '+') + tView.transaction.amount + ' €'}">0 €</strong>
+                            <span th:text="${tView.isDebit ? 'Sortant' : 'Entrant'}">Statut</span>
+                            <small th:text="${#temporals.format(tView.transaction.createdAt, 'dd/MM/yyyy · HH:mm')}">Date</small>
+                        </div>
+                    </article>
+
+                    <div th:if="${transactions.isEmpty()}" class="empty-state">
+                        <strong>Aucune transaction pour le moment</strong>
+                        <p>Votre historique apparaîtra ici dès votre première opération.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="glass-card tiers-card" data-reveal>
+                <div class="overview-balance__top card-heading">
+                    <h2>Avantages premium</h2>
+                </div>
+
+                <div class="tiers-vertical" th:attr="data-balance=${user.balance}">
+                    <div class="tiers-vertical__rail">
+                        <div class="tiers-vertical__line"></div>
+                        <div class="tiers-vertical__fill" style="height: 0%"></div>
+                        <div class="tiers-vertical__markers" aria-hidden="true">
+                            <div class="tiers-vertical__marker" th:each="tier, stat : ${tiers}" th:style="'--tier-index:' + ${stat.index}">
+                                <span class="tier-row__dot" th:classappend="${tier.unlocked} ? ' tier-row__dot--active' : ''"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tiers-list tiers-list--vertical">
+                        <div class="tier-row tier-row--vertical" th:each="tier : ${tiers}">
+                            <div class="tier-row__content">
+                                <div class="tier-row__head">
+                                    <strong th:text="${tier.name}">Bronze</strong>
+                                    <span th:text="${tier.threshold}">1 000 €</span>
+                                </div>
+                                <p th:text="${tier.reward}">Récompense</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

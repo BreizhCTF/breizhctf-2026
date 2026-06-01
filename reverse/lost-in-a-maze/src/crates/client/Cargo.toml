@@ -1,0 +1,13 @@
+[package]
+name = "client"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ratatui = { version = "0.30.0" }
+color-eyre = { version = "0.6.5" }
+game = { path = "../game" }
+packets = { path = "../packets" }
+sha2 = { version = "0.10.9" }
+aes-gcm = { version = "0.10.3" }
+rkyv = { version = "0.8.14", features = ["std", "bytecheck"] }

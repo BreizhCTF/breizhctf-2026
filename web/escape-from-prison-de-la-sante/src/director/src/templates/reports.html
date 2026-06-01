@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Rapports — Direction{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h2>Rapports d'activité</h2>
+  <p>Statistiques et synthèse des incidents de l'établissement</p>
+</div>
+
+<div class="grid grid-3 mb-6">
+  {% set by_type = reports.get('incidentsByType', {}) %}
+  {% for type_name, count in by_type.items() %}
+  <div class="kpi-card">
+    <div class="kpi-label">{{ type_name | upper }}</div>
+    <div class="kpi-value">{{ count }}</div>
+    <div class="kpi-sub">incidents</div>
+  </div>
+  {% else %}
+  <div class="kpi-card" style="grid-column: span 3;">
+    <p class="text-muted">Aucune donnée disponible</p>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="card">
+  <div class="card-title">Incidents récents</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Statut</th>
+        <th>Date</th>
+        <th>Pénalité</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for inc in reports.get('recentIncidents', []) %}
+      <tr>
+        <td><span class="badge badge-yellow">{{ inc.type }}</span></td>
+        <td style="max-width: 300px; font-size: 13px;">{{ inc.description[:80] }}{% if inc.description|length > 80 %}…{% endif %}</td>
+        <td>
+          <span class="badge {{ 'badge-red' if inc.status == 'open' else 'badge-green' }}">{{ inc.status }}</span>
+        </td>
+        <td class="text-muted mono" style="font-size: 12px;">{{ inc.created_at[:10] if inc.created_at else '—' }}</td>
+        <td class="mono {% if inc.conduct_penalty > 0 %}text-danger{% endif %}">
+          {% if inc.conduct_penalty %}-{{ inc.conduct_penalty }}{% else %}0{% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="5" class="text-muted" style="text-align:center; padding: 24px;">Aucun incident</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

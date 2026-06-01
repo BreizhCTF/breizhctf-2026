@@ -1,0 +1,57 @@
+name: "Lost in a Maze"
+author: "AntwortEinesLebens"
+category: Reverse
+description: |-
+    ![Maze](https://media.tenor.com/SAviEA7OrT8AAAAd/alice-wonderland.gif)
+
+    Un dev nommé Mousshack aime développer des jeux vidéo et, avec l'essor de l'IA, il a décidé de coder un jeu dans le terminal.
+
+    Pour la connexion avec le serveur, il a rejeté TLS et inventé un algorithme de chiffrement sans échange de clé.
+
+    Convaincu que sa solution révolutionne les échanges mondiaux, il vous envoie son jeu et une capture réseau d'une partie avec un secret caché.
+    Montrez-lui qu'il se trompe.
+
+    Auteur : [AntwortEinesLebens](https://discord.com/users/776058684760522762)
+
+attribution: 'Auteur : [AntwortEinesLebens](https://discord.com/users/776058684760522762)'
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/lost_in_a_maze
+    - files/template.py
+    - files/game.pcap
+
+flags:
+    - BZHCTF{n07_4_g10b41_r3v01u710n}
+
+# Dépendence avec d'autres challenges
+requirements: []
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - Rust
+    - AES-GCM
+    - SHA256
+
+## Éviter de toucher à ce qui est en dessous ##
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-web
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+version: "0.1"

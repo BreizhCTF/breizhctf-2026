@@ -1,0 +1,54 @@
+name: "Emulated Trust"
+author: "AntwortEinesLebens"
+category: Reverse
+description: |-
+    ![Useless protection](https://i.redd.it/how-useless-and-insecure-they-bouta-make-the-age-v0-gnxdwaelv3ng1.jpg?width=600&format=pjpg&auto=webp&s=a53ad61afa730a2b6a1adcac9008e67111b3dbc8)
+
+    Breizh Systems a développé un prototype intégrant plusieurs mécanismes destinés à protéger l’exécution de ses binaires critiques.
+
+    Ce programme applique différentes politiques internes visant à détecter toute tentative d’analyse ou de modification.
+
+    Comprendre comment contourner ces protections pourrait être déterminant.
+
+    Auteur : [AntwortEinesLebens](https://discord.com/users/776058684760522762)
+
+attribution: 'Auteur : [AntwortEinesLebens](https://discord.com/users/776058684760522762)'
+
+# Liste des fichiers à fournirs aux joueurs
+
+files:
+    - files/bs_emulated_trust
+
+flags:
+    - BZHCTF{50m371m35_3mu14710n_15_34513r}
+
+# Dépendence avec d'autres challenges
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - Emulation
+    - Qiling
+    - Anti-tamper
+    - Anti-debug
+
+## Éviter de toucher à ce qui est en dessous ##
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-web
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+version: "0.1"

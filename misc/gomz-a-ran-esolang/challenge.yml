@@ -1,0 +1,49 @@
+name: "Gomz a ran Esolang"
+author: "Shynif"
+category: Misc
+description: |-
+    ![Sponge bob thinking](https://media.tenor.com/ozdQSPWnkdIAAAAC/thinking-tap.gif)
+
+    Des tâches de programmation très simples avec un langage très complexe.
+
+    Auteur : [Shynif](https://discord.com/users/387295848574353409)
+
+attribution: 'Auteur : [Shynif](https://discord.com/users/387295848574353409)'
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/relang.txt
+
+flags:
+    - BZHCTF{Plijout_a_ra_din_programmin_e_Es0l4n9!!!}
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+    - Esolang
+    - Coding
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - esolang
+    - socat
+    - python
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    template_name: gomz-a-ran-esolang
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+version: "0.1"

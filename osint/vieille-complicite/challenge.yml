@@ -1,0 +1,54 @@
+name: "Vieille complicité"
+author: "MigatteNoChauvui"
+category: OSINT
+description: |-
+    ![BZH](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExaTl6Z3gzdzFwaWVqZHNkYW5hMzVsdWMzM21wMGpwaWIzamNoem1mYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZK92FCOPbY8JaFhiMM/giphy.gif)
+
+    Suite à l'ouverture d'une information judiciaire contre la BZH Mafia, le juge d'instruction a délivré une ordonnance de réquisition aux opérateurs téléphoniques français. Un numéro identifié comme appartenant à une membre de la BZH mafia et proche de longue dâte de Mr. O, le chef adjoint de l'organisation, a été placé sur écoute légale pendant 24h par la DGSI.
+
+    Voici un extrait du relevé SMS transmis à notre bureau. Analysez ces communications pour remonter la piste numérique du chef adjoint. Votre objectif final : identifier la **ville de résidence actuelle de Mr. O**.
+
+    Format du flag: `BZHCTF{VilleDeRésidence}`
+
+    Auteur : [Migatte No Chauvui](https://discord.com/users/390093857297137666)
+
+attribution: 'Auteur : [Migatte No Chauvui](https://discord.com/users/390093857297137666)'
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/extract_sms.json
+flags:
+    - content: BZHCTF{Chevilly}
+      type: static
+      data: case_insensitive
+
+# Dépendence avec d'autres challenges
+
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+version: "0.1"

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyro Chat — Admin</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/admin.css" />
+    <script defer src="/static/js/admin.js"></script>
+  </head>
+  <body>
+    <div class="admin-container">
+      <header class="admin-header">
+        <h1>Panel d'administration</h1>
+        <a href="/" class="admin-back-btn">
+          <span class="icon icon-comments"></span>
+          Retour au chat
+        </a>
+      </header>
+
+      <main class="admin-main">
+        <section class="admin-section">
+          <h2>Fichiers uploadés</h2>
+          <div id="filesTable" class="files-table">
+            <div class="files-table-header">
+              <span>Nom du fichier</span>
+              <span>Actions</span>
+            </div>
+            <div id="filesList">
+              <div class="files-empty">Chargement...</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="renameModal" class="modal-overlay hidden">
+      <div class="modal">
+        <h3>Renommer le fichier</h3>
+        <input type="text" id="renameInput" placeholder="Nouveau nom..." autocomplete="off" />
+        <div class="modal-actions">
+          <button id="renameCancelBtn">Annuler</button>
+          <button id="renameConfirmBtn" class="primary">Renommer</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

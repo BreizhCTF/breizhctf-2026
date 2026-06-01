@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Gestion des blocs — Direction{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h2>Gestion des blocs</h2>
+  <p>Surveillance et confinement des ailes de l'établissement</p>
+</div>
+
+<div class="grid grid-3">
+  {% for bloc in blocs %}
+  <div class="card">
+    <div class="flex items-center justify-between mb-4">
+      <div>
+        <div style="font-weight: 700; font-size: 16px;">{{ bloc.name }}</div>
+        <div class="text-muted" style="font-size: 13px;">Aile {{ bloc.wing }}</div>
+      </div>
+      {% if bloc.isLocked %}
+        <span class="badge badge-red">CONFINEMENT</span>
+      {% else %}
+        <span class="badge badge-green">NORMAL</span>
+      {% endif %}
+    </div>
+
+    <div class="mb-4">
+      <div style="background: var(--surface2); border-radius: 6px; height: 6px; overflow: hidden;">
+        <div style="background: var(--primary); height: 100%; width: {{ [((bloc.occupancy or 0) / (bloc.capacity or 1) * 100)|int, 100]|min }}%"></div>
+      </div>
+      <div class="text-muted" style="font-size: 12px; margin-top: 4px;">
+        Occupation : <span class="mono">{{ bloc.occupancy or 0 }}/{{ bloc.capacity }}</span>
+      </div>
+    </div>
+
+    {% if bloc.isLocked and bloc.lockdownReason %}
+    <div style="font-size: 12px; color: var(--danger); background: rgba(239,68,68,0.1); padding: 8px 10px; border-radius: 6px; margin-bottom: 12px;">
+      {{ bloc.lockdownReason }}
+    </div>
+    {% endif %}
+
+    {% if bloc.isLocked %}
+    <form method="post" action="{{ url_for('blocs.lift_lockdown', bloc_id=bloc.id) }}">
+      <button type="submit" class="btn btn-success btn-sm" style="width:100%">Lever le confinement</button>
+    </form>
+    {% else %}
+    <form method="post" action="{{ url_for('blocs.lockdown', bloc_id=bloc.id) }}">
+      <input type="text" name="reason" placeholder="Motif du confinement" required style="margin-bottom:8px">
+      <button type="submit" class="btn btn-danger btn-sm" style="width:100%">Déclencher confinement</button>
+    </form>
+    {% endif %}
+  </div>
+  {% else %}
+  <p class="text-muted" style="grid-column: span 3; text-align:center; padding: 24px;">Aucun bloc disponible</p>
+  {% endfor %}
+</div>
+{% endblock %}

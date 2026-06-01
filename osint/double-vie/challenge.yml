@@ -1,0 +1,63 @@
+name: "Double Vie"
+author: "MigatteNoChauvui"
+category: OSINT
+description: |-
+    ![BZH](https://media.tenor.com/jc9TgRwK5WYAAAAM/unmask.gif)
+
+    Nos investigations sur la BZH Mafia ont révélé une information stupéfiante : l'organisation compterait parmi ses membres un individu connu du grand public, une personnalité dont le visage est familier à des millions de Français. Cette figure publique utilise sa notoriété comme camouflage parfait: elle blanchit de l'argent via ses activités officielles, recrute discrètement parmi ses admirateurs tout en masquant ses véritables opérations criminelles.
+
+    Lors de la perquisition d'une planque de la BZH Mafia, nos équipes ont fouillé un bureau censé appartenir à cette célébrité. Vous trouverez en pièce jointe la photo de ce que nous y avons découvert.
+
+    Le temps presse. Cette personnalité prépare une transaction imminente qui pourrait rapporter des millions à l'organisation. Peut-être qu'avec l'analyse de cette trouvaille, vous parviendrez à identifier la personne concernée.
+
+    **P.S. - Conseil de l'équipe technique du BINB : passez votre navigateur en light mode, sinon la dernière étape de l'investigation risque d'être compliquée. **
+
+    Format du flag: `BZHCTF{Prénom_Nom}`
+
+    Auteur : [Migatte No Chauvui](https://discord.com/users/390093857297137666)
+
+attribution: 'Auteur : [Migatte No Chauvui](https://discord.com/users/390093857297137666)'
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/image.png
+
+flags:
+    - type: "static"
+      content: "BZHCTF{Sylvain_Durif}"
+      data: "case_insensitive"
+    - type: "static"
+      content: "BZHCTF{Sylvain_Pierre_Durif}"
+      data: "case_insensitive"
+
+# Dépendence avec d'autres challenges
+requirements:
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+
+# Les topics ne sont visibles que par les admins uniquement
+topics: []
+
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+version: "0.1"

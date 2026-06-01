@@ -1,0 +1,12 @@
+*.i64
+*.id0
+*.id1
+*.id2
+*.nam
+*.til
+validator_final
+cgi/bin/
+src/cgi/validator
+src/cgi/wbgen
+.claude
+*.so

@@ -1,0 +1,96 @@
+# syntax=docker/dockerfile:1-labs
+
+# ==================== Base: Android SDK ====================
+FROM eclipse-temurin:17-jdk-jammy AS android_sdk
+
+RUN apt-get update && apt-get install -y --no-install-recommends wget unzip && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /opt/Android/cmdline-tools \
+    && wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O /tmp/cmdtools.zip \
+    && unzip /tmp/cmdtools.zip -d /opt/Android/cmdline-tools \
+    && mv /opt/Android/cmdline-tools/cmdline-tools /opt/Android/cmdline-tools/latest \
+    && rm /tmp/cmdtools.zip
+
+ENV ANDROID_HOME=/opt/Android
+ENV PATH="${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
+
+RUN yes | sdkmanager --licenses \
+    && sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
+
+# ==================== Stage 1: Build android-vaultpass ====================
+FROM android_sdk AS vaultpass_builder
+
+COPY android-vaultpass /build
+WORKDIR /build
+RUN --mount=type=cache,id=gradle-vaultpass,target=/root/.gradle \
+    chmod +x gradlew && ./gradlew assembleDebug --no-daemon
+
+# ==================== Stage 2: Build android-messenger ====================
+FROM android_sdk AS messenger_builder
+
+RUN sdkmanager "ndk;27.2.12479018" "cmake;3.22.1"
+
+COPY android-messenger /build
+WORKDIR /build
+RUN --mount=type=cache,id=gradle-messenger,target=/root/.gradle \
+    chmod +x gradlew && ./gradlew assembleDebug --no-daemon
+
+# ==================== Stage 3: Build AVD snapshot ====================
+FROM debian:bookworm-slim AS snapshot_builder
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    openjdk-17-jdk wget unzip procps \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /opt/Android/cmdline-tools \
+    && wget -q https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O /tmp/cmdtools.zip \
+    && unzip /tmp/cmdtools.zip -d /opt/Android/cmdline-tools \
+    && mv /opt/Android/cmdline-tools/cmdline-tools /opt/Android/cmdline-tools/latest \
+    && rm /tmp/cmdtools.zip
+
+ENV ANDROID_HOME=/opt/Android
+ENV PATH="${ANDROID_HOME}/emulator:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
+ENV AVD_SYSTEM_IMAGE="system-images;android-34;google_apis;x86_64"
+ENV AVD_NAME="challenge_avd"
+
+RUN yes | sdkmanager --licenses \
+    && sdkmanager "platform-tools" "platforms;android-34" "emulator" "${AVD_SYSTEM_IMAGE}"
+
+RUN --security=insecure emulator -accel-check || exit 1
+
+COPY --from=messenger_builder /build/app/build/outputs/apk/debug/app-debug.apk /challenge/app.apk
+COPY --from=vaultpass_builder /build/app/build/outputs/apk/debug/app-debug.apk /challenge/vaultpass.apk
+
+COPY avd/snapshot_emulator.sh /tmp/snapshot_emulator.sh
+RUN chmod +x /tmp/snapshot_emulator.sh
+RUN --security=insecure /tmp/snapshot_emulator.sh
+
+# ==================== Stage 4: Final image ====================
+FROM debian:bookworm-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    openjdk-17-jre-headless procps curl python3 python3-pip python3-venv \
+    libx11-6 libx11-xcb1 libxcb1 libpulse0 \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m venv /opt/venv && /opt/venv/bin/pip install --no-cache-dir flask
+
+COPY --from=snapshot_builder /opt/Android /opt/Android
+COPY --from=snapshot_builder /root/.android/ /root/.android/
+RUN find /root/.android/ -name '*.lock' -delete
+
+ENV ANDROID_HOME=/opt/Android
+ENV PATH="/opt/venv/bin:${ANDROID_HOME}/emulator:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
+ENV AVD_NAME="challenge_avd"
+
+COPY --from=messenger_builder /build/app/build/outputs/apk/debug/app-debug.apk /challenge/app.apk
+COPY --from=vaultpass_builder /build/app/build/outputs/apk/debug/app-debug.apk /challenge/vaultpass.apk
+COPY avd/bot.sh /challenge/bot.sh
+COPY avd/entrypoint.sh /challenge/entrypoint.sh
+COPY server/ /challenge/server/
+RUN chmod +x /challenge/bot.sh /challenge/entrypoint.sh
+
+EXPOSE 80
+
+WORKDIR /challenge
+ENTRYPOINT ["/challenge/entrypoint.sh"]

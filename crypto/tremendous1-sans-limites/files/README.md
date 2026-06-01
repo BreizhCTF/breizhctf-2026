@@ -1,0 +1,4 @@
+# Tremendous 1 - Accès VIP : Sans limites 
+
+Pour télécharger notre application et obtenir votre ticket, vous devez passer ce portail VIP. La sécurité est maximale. J'ai partagé le code maître entre mes meilleurs directeurs. Shamir, ils appellent ça. Un type très intelligent, ce Shamir, très respecté. Mais les soi-disant ingénieurs informatiques voulaient mettre des limites à mes nombres ! Ils parlaient de "modulo", ils voulaient enfermer mon code, forcer les mathématiques à tourner en rond dans une petite boîte ! J'ai dit : "Arrêtez tout. Pas de plafond pour mes invités. Mes nombres, ils ne tournent pas en rond, ils vont tout droit vers le ciel. Vers l'infini !" J'ai exigé qu'on utilise des nombres entiers. Purs. Intacts. Un de ces pseudo-experts a pleurniché : "Mais Monsieur, sans la boîte de limite, c'est juste de l'algèbre de collège...". Je l'ai viré sur-le-champ. 
+=

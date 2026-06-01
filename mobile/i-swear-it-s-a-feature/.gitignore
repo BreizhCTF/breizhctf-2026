@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# APK builds
+dist/*.apk
+src/avd/*.apk
+
+# Docker BuildKit local cache
+src/.buildcache/
+
+# SQLite
+*.db
+*.db-journal
+
+# Uploads
+src/server/uploads/
+src/server/data/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Allow Android native libs (overrides root *.so)
+!src/android-messenger/app/src/main/jniLibs/**/*.so

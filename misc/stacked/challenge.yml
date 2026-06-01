@@ -1,0 +1,52 @@
+name: "Stacked"
+author: "Shynif"
+category: Misc
+description: |-
+    ![Stacked pancakes](https://media.tenor.com/U-3GYYx-LbEAAAAC/pancakes-stacks-on-stacks.gif)
+
+    Vous rencontrez des difficultés avec les deux autres défis esolang ?
+
+    Pas de souci ! Essayez le mode bac à sable !
+
+    Auteur : [Shynif](https://discord.com/users/387295848574353409)
+
+attribution: 'Auteur : [Shynif](https://discord.com/users/387295848574353409)'
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/relang.txt
+flags:
+    - BZHCTF{Pyjail_in_esolang?That_is_a_guessy_jail_with_extra_steps!}
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - Esolang
+    - Sandbox
+    - Misc
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - esolang
+    - rce
+    - python
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    template_name: stacked
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+version: "0.1"

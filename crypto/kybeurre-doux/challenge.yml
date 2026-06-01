@@ -1,0 +1,61 @@
+name: "Kybeurre doux"
+author: "Korabal"
+category: Crypto
+description: |-
+    ![quantum-native-ninja](https://media.tenor.com/wv75yEIqgS8AAAAj/hackermans.gif)
+
+    Tu candidates à une offre d'embauche LinkedIn. Rien de louche.
+
+    Auteur : [Korabal](https://discord.com/users/1362851325615800573)
+
+
+attribution: 'Auteur : [Korabal](https://discord.com/users/1362851325615800573)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+    template_name: kybeurre-doux
+
+flags:
+    - BZHCTF{gpt_erwann_removed_the_noise_for_better_kpis_and_synergy}
+
+# Les topics ne sont visibles que par les admins
+topics:
+  - user-controlled input
+  - bruteforce
+
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Crypto
+    - Kyber
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/kybeurre_doux.py
+    - files/README.md
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

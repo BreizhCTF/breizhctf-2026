@@ -1,0 +1,24 @@
+#!/bin/busybox sh
+
+# 1. Installer les applets (symlinks)
+/bin/busybox --install -s /bin
+
+dmesg -n 1
+
+# 2. Monter les filesystems vitaux
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t devtmpfs none /dev
+
+# --- AJOUT SPECIAL KVM ---
+# Indispensable pour voir les stats KVM et les traces
+# mkdir -p /sys/kernel/debug
+# mount -t debugfs none /sys/kernel/debug
+# -------------------------
+
+echo "==========================="
+
+./mini_vm
+
+echo "Arrêt du système..."
+poweroff -f

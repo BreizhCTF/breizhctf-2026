@@ -1,0 +1,61 @@
+name: "KVMillésime - Mise en fût [2/3]"
+author: "Korabal"
+category: Crypto
+description: |-
+    ![LibreConcurrence](https://media.tenor.com/scX-kVPwUn8AAAAC/tenor.gif)
+
+    Afin que, la pleine conscience sur notre merveilleuse blockchain, majestueusement restaurer nous puissions, ce frénétique automate de trading, avec une inébranlable compassion débrancher tu devras.
+
+    *Note: Pas de dépendances techniques entre les challenges. Juste du lore.*
+
+    Auteur : [Korabal](https://discord.com/users/1362851325615800573)
+
+attribution: 'Auteur : [Korabal](https://discord.com/users/1362851325615800573)'
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/sources.zip
+    - files/README.md
+
+flags:
+    - BZHCTF{Namast3_V1nce_H0p3_Mar1a_3nj0y3d_Th3_H0t_Y0ga}
+    - BZHCTF{N4m4st3_V1nc3_H0p3_M4r14_3nj0y3d_Th3_H0t_Y0g4}
+
+# Dépendence avec d'autres challenges
+# requirements:
+#     - "Warmup"
+#     - "Are you alive"
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+    - virtualisation
+    - Side channel
+    - Ingénierie de la crypto
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - leaky hypercall
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+extra:
+    template_name: kvmillesime-mise-en-fut
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+# connection_info: nc exemple-tcp.chall.ctf.bzh 1337
+
+version: "0.1"

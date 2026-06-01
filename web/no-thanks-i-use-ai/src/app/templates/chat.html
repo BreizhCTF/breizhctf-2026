@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyro Chat</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/attachment.css" />
+    <script defer src="/static/js/app.js"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="user-profile">
+            <div class="avatar self">{{ user[0].upper() }}</div>
+            <span>{{ user }}</span>
+          </div>
+          <button id="logoutBtn" title="Déconnexion">
+            <span class="icon icon-logout"></span>
+          </button>
+          {% if user == 'admin' %}
+          <a href="/admin" id="adminPanelBtn" title="Panel Admin">
+            <span class="icon icon-edit"></span>
+          </a>
+          {% endif %}
+        </div>
+
+        <div class="search-container">
+          <div class="search-box">
+            <span class="icon icon-search"></span>
+            <input
+              type="text"
+              id="userSearch"
+              placeholder="Chercher un utilisateur..."
+            />
+          </div>
+          <div id="searchResults" class="search-results hidden"></div>
+        </div>
+
+        <div class="users-list" id="usersList">
+          <div class="list-header">Conversations</div>
+          <div id="conversationsList"></div>
+        </div>
+      </aside>
+
+      <main class="chat-area" id="chatArea">
+        <div class="empty-state" id="emptyState">
+          <span class="icon icon-comments"></span>
+          <h2>Sélectionnez un utilisateur pour discuter</h2>
+        </div>
+
+        <div class="chat-interface hidden" id="chatInterface">
+          <div id="dropOverlay" class="drop-overlay hidden">
+            <span class="icon icon-file"></span>
+            <div>Déposez votre fichier ici</div>
+          </div>
+          <header class="chat-header">
+            <div class="partner-info">
+              <div class="avatar" id="partnerAvatar"></div>
+              <h3 id="partnerName"></h3>
+            </div>
+          </header>
+
+          <div class="messages-container" id="messagesContainer">
+            <!-- Messages will be injected here -->
+          </div>
+
+          <div id="AttachmentPreview">
+            <div class="attachment-info">
+              <span class="icon icon-paperclip"></span>
+              <span class="attachment-name" id="attachmentName"></span>
+            </div>
+            <button class="remove-attachment" id="removeAttachmentBtn">
+              <span class="icon icon-close"></span>
+            </button>
+          </div>
+
+          <div class="input-area">
+            <input type="file" id="fileInput" hidden />
+            <button class="icon-btn" id="attachBtn">
+              <span class="icon icon-paperclip"></span>
+            </button>
+            <input
+              type="text"
+              id="messageInput"
+              placeholder="Écrivez votre message..."
+              autocomplete="off"
+            />
+            <button class="send-btn" id="sendBtn">
+              <span class="icon icon-send"></span>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

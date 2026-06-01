@@ -1,0 +1,54 @@
+name: "Phase Zero"
+author: "AntwortEinesLebens"
+category: Reverse
+description: |-
+    ![Secret Hideout](https://media.tenor.com/A3H9mduWfl4AAAAC/room-design-yt-shorts.gif)
+
+    Après la montée des tensions mondiales, de nombreux pays ont renforcé leurs investissements en cybersécurité.
+
+    Une entreprise émergente, Breizh Systems, s’est imposée dans la protection des binaires critiques. Malgré la réputation de ses outils, certains de ses premiers prototypes ont récemment fuité.
+
+    Parmi ces archives figure un programme expérimental, issu d’un projet visant à déplacer des décisions critiques en dehors des chemins d’exécution classiques.
+
+    À première vue, tout semble normal.
+
+    Auteur : [AntwortEinesLebens](https://discord.com/users/776058684760522762)
+
+attribution: 'Auteur : [AntwortEinesLebens](https://discord.com/users/776058684760522762)'
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/bs_phase_zero
+
+flags:
+    - BZHCTF{1n17_4rr4y}
+
+# Dépendence avec d'autres challenges
+requirements: []
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - init_array
+    - memfrob
+
+## Éviter de toucher à ce qui est en dessous ##
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-web
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+version: "0.1"

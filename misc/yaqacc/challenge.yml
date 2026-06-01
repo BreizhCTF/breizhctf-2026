@@ -1,0 +1,51 @@
+name: "Yet Another Question/Answer Coding Challenge"
+author: "Shynif"
+category: Misc
+description: |-
+    ![Long taking Print Hello World](https://media.tenor.com/cX92mi1p-NYAAAAd/coding-anime.gif)
+
+    J'adore les langages ésotériques :) J'espère que vous aussi !
+
+    Vous allez réimplémenter un langage ésotérique. Ça devrait être facile, mais ça risque de prendre du temps.
+
+    Je vous déconseille de vous précipiter. Prenez votre temps, faites-le soigneusement étape par étape et tout ira bien :3
+
+    Auteur : [Shynif](https://discord.com/users/387295848574353409)
+
+attribution: 'Auteur : [Shynif](https://discord.com/users/387295848574353409)'
+
+flags:
+    - BZHCTF{7here_1s_5oM3th1n9_wR0n9_w17h_e5oL4n9_p30p13}
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Coding
+    - Esolang
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - esolang
+    - classic tcp coding challenge
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+extra:
+    template_name: yaqacc
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+version: "0.1"

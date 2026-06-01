@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunely — Connexion</title>
+    <link rel="icon" type="image/svg+xml" href="/img/thunely-mark.svg">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-shell">
+    <div class="page-orbs">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <main class="auth-layout">
+        <section class="auth-showcase" data-reveal>
+            <a href="/" class="brand-mark brand-mark--light" aria-label="Retour à l'accueil">
+                <span class="brand-mark__icon">
+                    <img src="/img/thunely-mark.svg" alt="" aria-hidden="true">
+                </span>
+                <span class="brand-mark__text">Thunely</span>
+            </a>
+
+            <div class="auth-showcase__content">
+                <span class="eyebrow-pill">Retour à votre espace premium</span>
+                <h1>Connectez-vous à votre espace Thunely.</h1>
+                <p>
+                    Retrouvez votre solde, vos dernières opérations et les avantages associés à votre compte.
+                </p>
+                <div class="auth-benefits">
+                    <div class="auth-benefits__item">
+                        <strong>Solde</strong>
+                        <span>Consultez votre montant disponible.</span>
+                    </div>
+                    <div class="auth-benefits__item">
+                        <strong>Virements</strong>
+                        <span>Envoyez de l’argent depuis le tableau de bord.</span>
+                    </div>
+                    <div class="auth-benefits__item">
+                        <strong>Avantages</strong>
+                        <span>Suivez votre progression entre les différents paliers.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="auth-panel" data-reveal>
+            <div class="glass-card auth-card-v2">
+                <div class="auth-card-v2__header">
+                    <span class="section-kicker">Connexion</span>
+                    <h2>Heureux de vous revoir.</h2>
+                    <p>Entrez vos identifiants pour accéder à votre compte.</p>
+                </div>
+
+                <div th:if="${error}" class="alert alert--danger" th:text="${error}"></div>
+
+                <form action="/login" method="post" class="form-stack">
+                    <div class="field-group">
+                        <label for="username">Nom d’utilisateur</label>
+                        <input type="text" id="username" name="username" required placeholder="Votre identifiant">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="password" required placeholder="Votre mot de passe">
+                    </div>
+
+                    <button type="submit" class="button button--primary button--block">Se connecter</button>
+                </form>
+
+                <div class="auth-card-v2__footer">
+                    <span>Pas encore de compte ?</span>
+                    <a href="/register">Créer un compte</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

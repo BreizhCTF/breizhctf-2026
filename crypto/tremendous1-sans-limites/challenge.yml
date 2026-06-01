@@ -1,0 +1,60 @@
+name: "Tremendous - Accès VIP : Sans limites [1/2]"
+author: "Korabal"
+category: Crypto
+description: |-
+    ![Huge](https://media.tenor.com/TKDLj5DR1_EAAAAC/tenor.gif)
+
+    Quelqu'un d'excessivement volubile (et fier de lui même) vous parle. Vous avez entendu "Pour télécharger notre application, et obtenir votre ticket, ... portal VIP ... modulo ... tournent pas en rond ... Purs ... Je l'ai viré sur-le-champ.".
+
+    *Note: pas de dépendances techniques entre les challenges. Juste du lore.*
+
+    Auteur : [Korabal](https://discord.com/users/1362851325615800573)
+
+attribution: 'Auteur : [Korabal](https://discord.com/users/1362851325615800573)'
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/challenge.py
+    - files/leak.txt
+    - files/README.md
+
+flags:
+    - BZHCTF{we_have_the_biggest_numbers_peri0d}
+
+# Dépendence avec d'autres challenges
+# requirements:
+#     - "Warmup"
+#     - "Are you alive"
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Shamir
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - SansModuloCestDuCollege
+
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+# connection_info: ""
+
+version: "0.1"
+

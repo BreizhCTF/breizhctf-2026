@@ -1,0 +1,13 @@
+server/.venv/
+server/__pycache__/
+server/data/
+server/uploads/
+.git/
+
+# Android build artifacts — prevent COPY layer cache invalidation
+android-messenger/build/
+android-messenger/.gradle/
+android-messenger/app/build/
+android-vaultpass/build/
+android-vaultpass/.gradle/
+android-vaultpass/app/build/

@@ -1,0 +1,6 @@
+services:
+  kvm2:
+    build: .
+    ports:
+      - "1337:1337"
+

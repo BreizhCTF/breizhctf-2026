@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Budget — Direction{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h2>Gestion budgétaire</h2>
+  <p>Rémunérations des postes de travail et tarifs de la boutique</p>
+</div>
+
+<div class="grid grid-2">
+  <div class="card">
+    <div class="card-title">Rémunérations — Postes de travail</div>
+    {% for job in stats.get('workJobs', []) %}
+    <div style="padding: 12px 0; border-bottom: 1px solid var(--surface2);">
+      <div class="flex items-center justify-between mb-4" style="margin-bottom: 8px;">
+        <div>
+          <div style="font-weight: 600; font-size: 14px;">{{ job.name }}</div>
+          <div class="text-muted" style="font-size: 12px;">{{ job.location }}</div>
+        </div>
+        <span class="badge badge-green mono">{{ '%.2f'|format(job.payAmount) }} €</span>
+      </div>
+      <form method="post" action="{{ url_for('budget.update_salary', job_id=job.id) }}" class="flex gap-2">
+        <input type="number" name="payAmount" step="0.5" min="1" max="100"
+               placeholder="Nouveau montant (€)" style="flex:1">
+        <button type="submit" class="btn btn-primary btn-sm">Modifier</button>
+      </form>
+    </div>
+    {% else %}
+    <p class="text-muted" style="font-size:14px;">Données indisponibles</p>
+    {% endfor %}
+  </div>
+
+  <div class="card">
+    <div class="card-title">Tarification — Boutique</div>
+    {% for item in stats.get('storeItems', []) %}
+    <div style="padding: 12px 0; border-bottom: 1px solid var(--surface2);">
+      <div class="flex items-center justify-between mb-4" style="margin-bottom: 8px;">
+        <div>
+          <div style="font-weight: 600; font-size: 14px;">{{ item.name }}</div>
+          <div class="text-muted" style="font-size: 12px;">{{ item.category }}</div>
+        </div>
+        <span class="badge badge-blue mono">{{ '%.2f'|format(item.price) }} €</span>
+      </div>
+      <form method="post" action="{{ url_for('budget.update_price', item_id=item.id) }}" class="flex gap-2">
+        <input type="number" name="price" step="0.5" min="0" max="500"
+               placeholder="Nouveau prix (€)" style="flex:1">
+        <button type="submit" class="btn btn-primary btn-sm">Modifier</button>
+      </form>
+    </div>
+    {% else %}
+    <p class="text-muted" style="font-size:14px;">Données indisponibles</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

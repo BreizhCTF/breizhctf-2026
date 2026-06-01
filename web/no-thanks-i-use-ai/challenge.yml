@@ -1,0 +1,46 @@
+name: "No thanks, I use AI"
+author: "crazycat256"
+category: Web
+description: |-
+    ![this-is-ai](https://media.tenor.com/TO_uvuFNh4cAAAAi/ai-ai-art.gif)
+
+    Un ami vous montre fièrement l'application de chat qu'il vient tout juste de vibecoder.
+    Lorsque vous l'interrogez quand à la sécurité de son application, il vous répond qu'il a également demandé à son LLM de l'auditer et qu'elle ne contient rien d'exploitable.
+    Vous décidez donc de tester par vous même...
+
+    Auteur : [crazycat256](https://discord.com/users/574252733545054211)
+
+attribution: 'Auteur : [crazycat256](https://discord.com/users/574252733545054211)'
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/no-thanks-i-use-ai.zip
+flags:
+    - BZHCTF{Dyn4m1cly_typ3d_l4ngu4g3s_4r3_g00d_f0r_s1mpl1c1ty_but_b4d_f0r_s3cur1ty!}
+
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - Python
+    - Web
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - XSS
+    - Type Confusion
+    - Path Traversal
+
+## Éviter de toucher à ce qui est en dessous ##
+
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: "no-thanks-i-use-ai"
+    initial: 500
+    decay: 100
+    minimum: 50
+
+version: "0.1"

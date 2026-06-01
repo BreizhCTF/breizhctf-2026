@@ -1,0 +1,61 @@
+name: "Kybeurre salé"
+author: "Korabal"
+category: Crypto
+description: |-
+    ![make-compliance-sexy-again](https://media.tenor.com/Ns-juEQlpkwAAAAC/tenor.gif)
+
+    Tu as fait forte impression auprès de la CNIL. J'ai l'impression que GPT-Erwann en est hereux.
+
+    Auteur : [Korabal](https://discord.com/users/1362851325615800573)
+
+
+attribution: 'Auteur : [Korabal](https://discord.com/users/1362851325615800573)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+    template_name: kybeurre-sale
+
+flags:
+    - BZHCTF{the_human_middleware_just_solved_your_lwe_system_linearly}
+
+# Les topics ne sont visibles que par les admins
+topics:
+  - LWE
+  - Too many samples
+
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+    - Crypto
+    - Kyber
+    - LWE
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/kybeurre_sale.py
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

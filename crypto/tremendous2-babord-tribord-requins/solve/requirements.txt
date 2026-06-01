@@ -1,0 +1,3 @@
+requests>=2.32
+pwntools>=4.13
+pycryptodome>=3.20

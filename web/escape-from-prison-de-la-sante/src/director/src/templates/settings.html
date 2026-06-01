@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Paramètres système — Direction{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h2>Paramètres système</h2>
+  <p>Configuration de l'infrastructure et des services tiers</p>
+</div>
+
+<div class="card" style="max-width: 480px;">
+  <div class="card-title">État des services</div>
+  <div style="display: flex; flex-direction: column; gap: 12px;">
+    <div class="flex items-center justify-between" style="padding: 10px; background: var(--surface2); border-radius: 6px;">
+      <span style="font-size: 14px;">API Node.js</span>
+      <span class="badge badge-green">Actif</span>
+    </div>
+    <div class="flex items-center justify-between" style="padding: 10px; background: var(--surface2); border-radius: 6px;">
+      <span style="font-size: 14px;">Base de données PostgreSQL</span>
+      <span class="badge badge-green">Actif</span>
+    </div>
+    <div class="flex items-center justify-between" style="padding: 10px; background: var(--surface2); border-radius: 6px;">
+      <span style="font-size: 14px;">Panel Direction (Flask)</span>
+      <span class="badge badge-green">Actif</span>
+    </div>
+  </div>
+</div>
+{% endblock %}

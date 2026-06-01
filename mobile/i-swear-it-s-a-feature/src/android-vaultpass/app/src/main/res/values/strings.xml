@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">VaultPass</string>
+    <string name="master_password_hint">Master Password</string>
+    <string name="unlock">Unlock</string>
+    <string name="wrong_password">Invalid master password</string>
+    <string name="password_copied">Password copied to clipboard</string>
+    <string name="vault_locked">Vault is locked</string>
+    <string name="entries_count">%d entries</string>
+</resources>

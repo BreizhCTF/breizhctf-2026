@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Journal d'audit — Direction{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h2>Journal d'audit</h2>
+  <p>Traçabilité des actions administratives</p>
+</div>
+
+<div class="card">
+  <table>
+    <thead>
+      <tr>
+        <th>Horodatage</th>
+        <th>Action</th>
+        <th>Utilisateur</th>
+        <th>Détail</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in logs %}
+      <tr>
+        <td class="mono text-muted" style="font-size: 12px;">{{ log.timestamp[:19] }}</td>
+        <td style="font-weight: 600; font-size: 13px;">{{ log.action }}</td>
+        <td class="text-muted" style="font-size: 13px;">{{ log.user }}</td>
+        <td style="font-size: 13px; color: var(--text-muted);">{{ log.detail }}</td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="4" class="text-muted" style="text-align:center; padding: 32px;">Aucun événement enregistré</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

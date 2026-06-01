@@ -1,0 +1,23 @@
+services:
+  challenge:
+    image: iswearitsafeature:latest
+    devices:
+      - /dev/kvm
+    ports:
+      - "8080:80"
+    environment:
+      - FLAG=${FLAG:-BZHCTF{1_m1sS_Th3_pR3-4i_w0r7d_:(}}
+    volumes:
+      - app-data:/challenge/server/data
+      - app-uploads:/challenge/server/uploads
+
+
+  dns:
+    build: ./coredns
+    network_mode: service:challenge
+    depends_on:
+      - challenge
+
+volumes:
+  app-data:
+  app-uploads:

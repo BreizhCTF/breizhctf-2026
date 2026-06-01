@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>DAFT CLUB :: Access Granted</title>
+<style type="text/css">
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #1c1c1c;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' x='0' y='0' fill='%23222' /%3E%3Crect width='1' height='1' x='2' y='2' fill='%23222' /%3E%3C/svg%3E");
+    color: #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shell {
+    width: 780px;
+    background: #222222;
+    border: 1px solid #111;
+    box-shadow:
+        0 0 0 1px #333,
+        4px 4px 0 0 #111,
+        8px 8px 20px rgba(0,0,0,0.8);
+}
+
+.top-bar {
+    background: #1a1a1a;
+    border-bottom: 2px solid #111;
+    display: flex;
+    align-items: stretch;
+    height: 52px;
+}
+
+.lcd-chip {
+    background: #0a1a0a;
+    border-right: 2px solid #111;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-image: repeating-linear-gradient(
+        180deg,
+        transparent 0px, transparent 3px,
+        rgba(0,0,0,0.3) 3px, rgba(0,0,0,0.3) 4px
+    );
+}
+.lcd-chip::after {
+    content: "";
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid #0d2a0d;
+    pointer-events: none;
+}
+.lcd-text {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 13px;
+    color: #39ff14;
+    text-shadow: 0 0 6px #39ff14, 0 0 14px #39ff14, 0 0 28px #00cc00;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+.grunge-logo {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+}
+.grunge-logo-text {
+    font-family: Arial Black, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: #e8e8e8;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    text-shadow:
+        -1px -1px 0 #555, 1px -1px 0 #555,
+        -1px  1px 0 #555, 1px  1px 0 #555,
+        -2px 0 0 #3a3a3a, 2px 0 0 #3a3a3a,
+        0 -2px 0 #3a3a3a, 0 2px 0 #3a3a3a,
+        3px 3px 6px rgba(0,0,0,0.6);
+}
+.grunge-logo-text em {
+    font-style: normal;
+    color: #c0392b;
+    text-shadow:
+        -1px -1px 0 #7a1a1a, 1px -1px 0 #7a1a1a,
+        -1px  1px 0 #7a1a1a, 1px  1px 0 #7a1a1a,
+        -2px 0 0 #5a1010, 2px 0 0 #5a1010,
+        0 -2px 0 #5a1010, 0 2px 0 #5a1010,
+        3px 3px 8px rgba(0,0,0,0.8);
+}
+
+/* Body */
+.body-area {
+    display: flex;
+    min-height: 380px;
+}
+
+.ok-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 46px 50px;
+    gap: 24px;
+    background: #1e1e1e;
+}
+
+.ok-code {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: #39ff14;
+    letter-spacing: 3px;
+    text-shadow: 0 0 8px rgba(57,255,20,0.4);
+}
+
+.ok-main {
+    font-family: Arial Black, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    color: #39ff14;
+    letter-spacing: -1px;
+    text-transform: lowercase;
+    text-shadow:
+        -2px -2px 0 #1a5a0a, 2px -2px 0 #1a5a0a,
+        -2px  2px 0 #1a5a0a, 2px  2px 0 #1a5a0a,
+        0 0 28px rgba(57,255,20,0.2);
+    transform: rotate(-1deg);
+    display: inline-block;
+}
+
+.ok-divider {
+    width: 220px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #333, transparent);
+}
+
+.ok-sub {
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Flag box */
+.flag-box {
+    width: 100%;
+    max-width: 560px;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid #39ff14;
+    padding: 18px 22px;
+    position: relative;
+}
+.flag-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 6px;
+    color: #39ff14;
+    text-shadow: 0 0 6px #39ff14;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.flag-value {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: #e8e8e8;
+    letter-spacing: 1px;
+    word-break: break-all;
+    line-height: 1.8;
+}
+
+/* Bottom bar */
+.bottom-bar {
+    background: #1a1a1a;
+    border-top: 1px solid #111;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+}
+.bottom-bar-left {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 6px;
+    color: #2d2d2d;
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+.back-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    color: #888;
+    background: #1a1a1a;
+    border: 2px solid #444;
+    padding: 10px 20px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+}
+.back-btn:hover { border-color: #666; color: #bbb; }
+
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <div class="top-bar">
+    <div class="lcd-chip"><span class="lcd-text">DAFTCLUB</span></div>
+    <div class="grunge-logo"><span class="grunge-logo-text"><em>daft</em> Club</span></div>
+  </div>
+
+  <div class="body-area">
+    <div class="ok-panel">
+      <div class="ok-code">// ACCESS GRANTED</div>
+      <div class="ok-main">welcome, member</div>
+      <div class="ok-divider"></div>
+      <div class="ok-sub">well played, member</div>
+      <div class="ok-divider"></div>
+      <div class="ok-code">// the cd key is the flag</div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <div class="bottom-bar-left">
+      DAFT CLUB &copy; 2001<br>
+      MEMBERS ONLY &middot; UNAUTHORIZED ACCESS PROHIBITED
+    </div>
+    <a class="back-btn" href="/">&lt; BACK</a>
+  </div>
+
+</div>
+
+</body>
+</html>

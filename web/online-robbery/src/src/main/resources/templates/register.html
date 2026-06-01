@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunely — Inscription</title>
+    <link rel="icon" type="image/svg+xml" href="/img/thunely-mark.svg">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-shell">
+    <div class="page-orbs">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <main class="auth-layout auth-layout--reverse">
+        <section class="auth-showcase" data-reveal>
+            <a href="/" class="brand-mark brand-mark--light" aria-label="Retour à l'accueil">
+                <span class="brand-mark__icon">
+                    <img src="/img/thunely-mark.svg" alt="" aria-hidden="true">
+                </span>
+                <span class="brand-mark__text">Thunely</span>
+            </a>
+
+            <div class="auth-showcase__content">
+                <span class="eyebrow-pill">Ouverture de compte rapide</span>
+                <h1>Créez votre accès et ouvrez votre compte.</h1>
+                <p>
+                    En quelques secondes, vous obtenez un compte pour consulter votre solde,
+                    effectuer des virements et suivre vos paliers.
+                </p>
+                <div class="auth-benefits auth-benefits--compact">
+                    <div class="auth-benefits__item">
+                        <strong>Inscription simple</strong>
+                        <span>Un formulaire court pour créer votre compte.</span>
+                    </div>
+                    <div class="auth-benefits__item">
+                        <strong>Suivi des paliers</strong>
+                        <span>Visualisez votre progression vers chaque avantage.</span>
+                    </div>
+                    <div class="auth-benefits__item">
+                        <strong>Compte personnel</strong>
+                        <span>Accédez à votre espace dès l’inscription terminée.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="auth-panel" data-reveal>
+            <div class="glass-card auth-card-v2">
+                <div class="auth-card-v2__header">
+                    <span class="section-kicker">Inscription</span>
+                    <h2>Ouvrez votre compte.</h2>
+                    <p>Choisissez vos identifiants pour rejoindre Thunely.</p>
+                </div>
+
+                <div th:if="${error}" class="alert alert--danger" th:text="${error}"></div>
+
+                <form action="/register" method="post" class="form-stack">
+                    <div class="field-group">
+                        <label for="username">Nom d’utilisateur</label>
+                        <input type="text" id="username" name="username" required placeholder="Choisissez un identifiant">
+                    </div>
+
+                    <div class="field-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="password" name="password" required placeholder="Choisissez un mot de passe">
+                    </div>
+
+                    <button type="submit" class="button button--primary button--block">Créer mon compte</button>
+                </form>
+
+                <div class="auth-card-v2__footer">
+                    <span>Déjà membre ?</span>
+                    <a href="/login">Se connecter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

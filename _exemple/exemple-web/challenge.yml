@@ -1,0 +1,49 @@
+name: "Exemple Web"
+author: "Maëlle"
+category: Exemple
+description: |-
+    ![Cat](https://media.tenor.com/UFzN4nLjULEAAAAd/cache-cache-cat-side.gif)
+
+    Balbabla
+attribution: 'Auteur : [Maëlle](https://x.com/adam_le_bon)'
+# Liste des fichiers à fournirs aux joueurs
+files: []
+flags:
+    - BZHCTF{exemple_web}
+
+# Dépendence avec d'autres challenges
+requirements:
+    - "Warmup"
+    - "Are you alive"
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Flask
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - White box
+    - python
+    - Directory enumeration
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-web
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+connection_info: https://exemple-web.chall.ctf.bzh
+
+version: "0.1"

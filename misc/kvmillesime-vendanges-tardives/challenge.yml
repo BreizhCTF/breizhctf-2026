@@ -1,0 +1,53 @@
+name: "KVMillésime - Vendanges tardives [1/3]"
+author: "Korabal"
+category: Misc
+description: |-
+    ![Oracle quantique](https://media.tenor.com/EIcYaOkm8KAAAAAd/tenor.gif)
+
+    PranaCorp prétend avoir bâti un oracle impossible à manipuler, même dans un environnement virtualisé.
+    Infiltrez leur infra, exploitez la mécanique de snapshot, puis remontez l'état interne du générateur
+    pour retrouver le secret avant la levée de fonds.
+
+    Auteur : [Korabal](https://discord.com/users/1362851325615800573)
+
+attribution: 'Auteur : [Korabal](https://discord.com/users/1362851325615800573)'
+
+# Liste des fichiers à fournir aux joueurs
+files:
+    - files/qemu-pci-rng-ascending.c
+    - files/README.md
+    - files/vm_init.c
+    - files/server.py
+
+flags:
+    - BZHCTF{Namaste_V1nce_Th4nks_F0r_The_Seed_M0ney}
+
+# Dépendance avec d'autres challenges
+# requirements:
+#   - "Warmup"
+#   - "Are you alive"
+
+# Les tags sont visibles par les joueurs et peuvent donner une idée du thème du challenge.
+# Il doit y avoir exactement un tag de difficulté et au moins un tag technique.
+tags:
+    - Moyen
+    - Virtualisation
+
+# Les topics ne sont visibles que par les admins.
+topics:
+    - save scumming
+    - bad save
+
+value: 500
+type: ctfkit
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+    template_name: kvmillesime-vendanges-tardives
+
+# À compléter au déploiement. Garder vide tant que la cible n'est pas publiée.
+connection_info: ""
+
+version: "0.1"

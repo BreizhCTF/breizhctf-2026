@@ -1,0 +1,52 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# Required sections
+name: "I swear it's a feature!"
+author: "pwnii"
+category: Mobile
+description: |-
+    ![Johnny](https://media.tenor.com/fpHjKgyf8XQAAAAd/cyberpunk-2077-johnny.gif)
+
+    L'equipe dev du BreizhCTF a sorti son app de messagerie maison. Envoyez des messages, partagez des images, rien ne peut mal tourner, non ?
+
+    **Credentials : `player` / `bzhctf2026`**
+
+    Auteur : [pwnii](https://discord.com/users/339570219985141772)
+
+attribution: 'Auteur : [pwnii](https://discord.com/users/339570219985141772)'
+
+# Valeur en points du challenge
+value: 500
+# Tous les challenges calculent les points de maniere "dynamic"
+type: ctfkit
+state: visible
+extra:
+    template_name: i-swear-it-s-a-feature
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - "BZHCTF{1_m1sS_Th3_pR3-4i_w0r7d_:(}"
+
+# Visible uniquement par les admins du CTFd
+topics:
+    - Android
+    - XSS
+    - JS Bridge
+    - Command Injection
+    - Native Code
+
+# Les tags sont visibles par les joueurs
+tags:
+    - Difficile
+    - Android
+
+# Pieces jointes du challenge
+files:
+    - files/bzh-messenger.apk.xz
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

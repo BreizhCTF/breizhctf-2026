@@ -1,0 +1,32 @@
+name: ETOOMANYFUNCTION
+author: "deadc0de"
+description: |-
+    ![Cat](https://media.tenor.com/-WCbK43rv2MAAAAd/kotique-cat-tongue.gif)
+
+    Nous avons trouvé ce fichier exécutable. Pouvez-vous déterminer ce qu'il attend ?
+
+    Auteur : [deadc0de](https://discord.com/users/742507022297333760)
+
+attribution: 'Auteur : [deadc0de](https://discord.com/users/742507022297333760)'
+category: Reverse
+
+tags:
+  - Facile
+  - C
+
+files:
+  - files/etoomanyfunction
+
+flags:
+  - BZHCTF{100k_func_aint_too_many_4_u}
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+version: "0.1"

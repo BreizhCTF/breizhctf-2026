@@ -1,0 +1,47 @@
+name: "Daft Club - 2026 Edition"
+category: Reverse
+author : "deadc0de"
+description: |-
+  ![wat](https://imgur.com/a/3O6FD7s)
+  Les Daft Punk préparent un comeback. Pour fêter ça, ils ont mis en ligne une piste inédite sur le Daft Club — une seule, accessible à une seule personne.
+  Le gagnant reçoit une invitation personnelle pour rencontrer le duo.
+
+  Le problème : il n'existe qu'un seul code CD valide au monde. Unique. Gravé dans le silicium.
+
+  Un hacker breton a mis la main sur le binaire qui vérifie les codes.
+  Malheureusement, il est déjà au bar. Il vous laisse le boulot.
+
+  Le code CD est quelque part là-dedans. Bonne chance.
+
+  Auteur : [deadc0de](https://discord.com/users/742507022297333760)
+
+attribution: 'Auteur : [deadc0de](https://discord.com/users/742507022297333760)'
+files:
+  - files/sources.tar.gz
+
+flags:
+    - BZHCTF{9fc162d13d99a742ab4780170af035a3}
+tags:
+    - Difficile
+    - C / C++
+    - Reverse
+    - Cryptographie
+
+
+value: 500
+type: ctfkit
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    template_name: daft-club
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+# connection_info: nc exemple-tcp.chall.ctf.bzh 1337
+
+version: "0.1"

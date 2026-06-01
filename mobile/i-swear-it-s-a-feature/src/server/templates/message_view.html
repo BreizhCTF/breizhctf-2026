@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: #313338;
+    color: #dcddde;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    padding: 8px 0;
+}
+.message-group {
+    padding: 4px 16px;
+    margin-top: 4px;
+}
+.message-group:hover {
+    background: #2e3035;
+}
+.msg-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2px;
+}
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    flex-shrink: 0;
+}
+.username {
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+.username:hover { text-decoration: underline; }
+.timestamp {
+    color: #72767d;
+    font-size: 11px;
+    margin-left: 4px;
+}
+.msg-content {
+    padding-left: 40px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+.msg-content img {
+    max-width: 300px;
+    max-height: 200px;
+    border-radius: 4px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+.attachment-card {
+    background: #2b2d31;
+    border: 1px solid #1e1f22;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 300px;
+}
+.attachment-icon { font-size: 20px; }
+.attachment-name {
+    color: #00aff4;
+    font-size: 13px;
+    text-decoration: none;
+}
+.attachment-name:hover { text-decoration: underline; }
+.image-wrapper {
+    margin-top: 6px;
+    max-width: 320px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.image-wrapper img {
+    display: block;
+    max-width: 100%;
+    max-height: 250px;
+    margin: 0;
+    border-radius: 8px 8px 0 0;
+}
+.image-proc {
+    background: #2b2d31;
+    padding: 8px 10px;
+    font-size: 12px;
+    color: #b5bac1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.image-proc .spinner {
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.image-proc-result {
+    background: #2b2d31;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #dcddde;
+    font-family: 'Consolas', 'Courier New', monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    border-radius: 0 0 8px 8px;
+}
+</style>
+</head>
+<body id="messages">
+{% for msg in messages %}
+<div class="message-group">
+    <div class="msg-header">
+        <div class="avatar" style="background: {{ users.get(msg.username, {}).get('color', '#747f8d') }}">
+            {{ users.get(msg.username, {}).get('avatar', '?') }}
+        </div>
+        <span class="username" style="color: {{ users.get(msg.username, {}).get('color', '#fff') }}">
+            {{ msg.username }}
+        </span>
+        <span class="timestamp">{{ msg.time_str }}</span>
+    </div>
+    <div class="msg-content">
+        {{ msg.content | safe }}
+        {% if msg.attachment %}
+        {% if msg.attachment.is_image %}
+        <div class="image-wrapper" id="img-wrap-{{ loop.index }}">
+            <img src="{{ msg.attachment.url }}" alt="{{ msg.attachment.name }}" data-url="{{ msg.attachment.url }}" />
+            <div class="image-proc" id="proc-{{ loop.index }}">
+                <span class="spinner">&#9881;</span>
+                <span>Native analysis...</span>
+            </div>
+            <div class="image-proc-result" id="result-{{ loop.index }}" style="display:none;"></div>
+        </div>
+        {% else %}
+        <div class="attachment-card">
+            <span class="attachment-icon">&#128206;</span>
+            <a class="attachment-name" href="{{ msg.attachment.url }}">{{ msg.attachment.name }}</a>
+        </div>
+        {% endif %}
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+<script>
+window.scrollTo(0, document.body.scrollHeight);
+
+(function() {
+    var images = document.querySelectorAll('.image-wrapper img');
+    if (images.length === 0) return;
+
+    try {
+        NativeBridge.setup();
+    } catch(e) { return; }
+
+    images.forEach(function(img) {
+        var wrapper = img.closest('.image-wrapper');
+        var idx = wrapper.id.replace('img-wrap-', '');
+        var procEl = document.getElementById('proc-' + idx);
+        var resultEl = document.getElementById('result-' + idx);
+
+        function doProcess() {
+            var url = img.getAttribute('data-url');
+            try {
+                var output = NativeBridge.processImage(url);
+                var clean = output.replace(/.*?:\s*/, '');
+                if (procEl) procEl.style.display = 'none';
+                if (resultEl) {
+                    resultEl.style.display = 'block';
+                    resultEl.textContent = '✅ ' + clean;
+                }
+            } catch(e) {
+                if (procEl) procEl.innerHTML = '<span style="color:#ed4245">Processing failed</span>';
+            }
+        }
+
+        if (img.complete) { doProcess(); }
+        else { img.addEventListener('load', doProcess); }
+    });
+})();
+</script>
+</body>
+</html>

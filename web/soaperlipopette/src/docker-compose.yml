@@ -1,0 +1,5 @@
+services:
+  soaperlipopette:
+    build: .
+    ports:
+      - "8000:8080"

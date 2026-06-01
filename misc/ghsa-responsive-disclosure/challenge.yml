@@ -1,0 +1,50 @@
+name: "GHSA Responsive Disclosure"
+author: "Zeecka"
+category: Misc
+description: |-
+    ![Github](https://media.tenor.com/l1bOm4w8DKsAAAAC/lgtm-looks-good-to-me.gif)
+
+    Trouvez une vulnérabilité dans un dépôt GitHub au choix (≥ 1 mois), puis créez un GitHub Security Advisory (GHSA) via le processus officiel.
+    Le GHSA doit inclure un patch valide. Soumission via Discord avec l’URL du dépôt et l’ID GHSA (l'ajout d'un collaborateur est requis).
+    Validation manuelle par le collaborateur ajouté.
+
+    *Note : Vérifiez que le dépot est public, que le GHSA est disponible sur ce repo, et que la vulnérabilité n'est pas déjà signalée. Les vulnérabilités critiques sont encouragées, mais toutes les découvertes valides seront récompensées.*
+
+    Auteur : [Zeecka](https://discord.com/users/251019555923689473)
+
+attribution: 'Auteur : [Zeecka](https://discord.com/users/251019555923689473)'
+
+files:
+    - ./files/rules.md
+
+flags:
+    - BZHCTF{r34l_w0rld_ghsa_disclosure}
+
+# Dépendence avec d'autres challenges
+requirements: []
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - GitHub
+    - Open Source
+
+topics:
+    - vulnerability disclosure
+    - GHSA
+    - open source
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+
+version: "0.1"

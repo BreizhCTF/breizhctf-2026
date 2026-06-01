@@ -1,0 +1,32 @@
+name: "Soaperlipopette"
+author: "Vozec"
+category: Web
+description: |
+    ![soap](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYW4yAJ72T12kVbiLJbw3-mHWiKtn_RYnkfQ&s)
+
+    A bit of PHP
+
+    Auteur : [Vozec](https://discord.com/users/1236956916903575666)
+
+attribution: 'Auteur : [Vozec](https://discord.com/users/1236956916903575666)'
+
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+    template_name: "soaperlipopette"
+
+flags:
+    - BZHCTF{SoapClientObjectInjection}
+
+tags:
+    - Facile
+    - PHP
+
+files: []
+requirements: []
+version: "0.1"

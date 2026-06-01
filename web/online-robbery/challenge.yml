@@ -1,0 +1,51 @@
+name: "Online Robbery"
+author: "crazycat256"
+category: Web
+description: |-
+    Le créateur de cette banque vous affirme qu'elle permet de devenir riche !! Prouvez-lui qu'il ne croit pas si bien dire...
+
+    Auteur : [crazycat256](https://discord.com/users/574252733545054211)
+
+attribution: 'Auteur : [crazycat256](https://discord.com/users/574252733545054211)'
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/online-robbery.zip
+flags:
+    - BZHCTF{Wh0_n33d5_m0n3y_wh3n_y0u_h4v3_R4c3_C0nd1t10n?}
+
+# Dépendence avec d'autres challenges
+#requirements: null
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - Java
+    - Web
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - Heapdump
+    - JWT
+    - Race Condition
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+extra:
+    template_name: online-robbery
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+# connection_info: nc exemple-tcp.chall.ctf.bzh 1337
+
+version: "0.1"

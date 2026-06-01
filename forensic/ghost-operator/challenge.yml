@@ -1,0 +1,46 @@
+name: "Ghost Operator"
+author: "Lamarr"
+category: Forensic
+description: |-
+    ![ghost](https://media.tenor.com/7FrH5e8UWZcAAAAC/cod-ghost.gif)
+
+    **Breizh Aero Survey** opère une flotte de 5 drones de cartographie (ALPHA, BRAVO, CHARLIE, DELTA, ECHO) le long de la côte bretonne. Les appareils communiquent avec la station sol via un protocole standard de télémétrie aéronautique.
+
+    Ce matin, pendant un vol de routine, un des drones a cessé de répondre aux commandes et a quitté sa trajectoire pour se diriger vers une zone isolée. L'équipe réseau avait un tcpdump actif sur le lien drone/sol pendant l'incident.
+
+    L'analyse préliminaire révèle un acteur réseau non identifié qui a échangé des messages avec la flotte. Le SOC suspecte une prise de contrôle suivie d'une exfiltration de données.
+
+    Votre mission :
+
+     - Retrouvez ce que l'attaquant a extrait
+
+    Auteur : [Lamarr](https://discord.com/users/361136527709044737)
+
+attribution: 'Auteur : [Lamarr](https://discord.com/users/361136527709044737)'
+
+files:
+    - files/ghost_operator.pcap
+
+flags:
+    - BZHCTF{ALPHA_GH0ST_0P3R4T0R}
+
+tags:
+    - Moyen
+    - Forensic
+    - Drone
+
+topics:
+    - pcap analysis
+    - MAVLink v2
+    - message signing
+    - data reassembly
+
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+version: "0.1"

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leet Institute — Certification Développeur</title>
+  <link rel="stylesheet" href="/fonts.css" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-logo">L I</span>
+        <div class="brand-text">
+          <span class="brand-name">Leet Institute</span>
+          <span class="brand-sep">|</span>
+          <span class="brand-sub">Centre de certification</span>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <span class="nav-item active">Examen</span>
+        <span class="nav-item">Certifications</span>
+        <span class="nav-item">À propos</span>
+      </nav>
+    </div>
+  </header>
+
+  <div id="app">
+
+    <!-- LANDING PAGE -->
+    <div class="view active" id="view-home">
+      <div class="hero">
+        <div class="hero-inner">
+          <div class="hero-left">
+            <p class="hero-eyebrow">Plateforme officielle · 2026</p>
+            <h1 class="hero-title">Prouvez votre expertise.<br>Obtenez la certification.</h1>
+            <p class="hero-sub">Le Leet Institute évalue vos compétences réelles sur les langages de programmation et délivre un certificat numérique reconnu dans l'industrie.</p>
+            <div class="hero-cta">
+              <button class="btn-start" id="btn-start">Commencer l'examen →</button>
+            </div>
+            <div class="hero-meta">
+              <span>4 spécialités</span>
+              <span class="hero-dot">·</span>
+              <span>100 % de réussite requis</span>
+              <span class="hero-dot">·</span>
+              <span>Résultats immédiats</span>
+            </div>
+          </div>
+          <div class="hero-right">
+            <img class="cert-preview-img" src="/api/preview" alt="Exemple de certificat Leet Institute" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view" id="view-name">
+      <div class="split-layout">
+        <div class="split-left">
+          <div class="split-left-inner">
+            <p class="eyebrow">Leet Institute</p>
+            <h1>La certification de référence pour les développeurs</h1>
+            <p class="aside-desc">Nos examens évaluent votre maîtrise réelle des langages de programmation. Chaque certificat est généré à votre nom.</p>
+            <ul class="feature-list">
+              <li><span class="check">✓</span> Examens rédigés par des experts</li>
+              <li><span class="check">✓</span> Certificat numérique officiel</li>
+              <li><span class="check">✓</span> Résultats immédiats</li>
+              <li><span class="check">✓</span> 100 % de réussite requis</li>
+            </ul>
+          </div>
+        </div>
+        <div class="split-right">
+          <div class="form-card">
+            <span class="form-step">Étape 1 / 3</span>
+            <h2>Votre identité</h2>
+            <p class="form-hint">Entrez le nom qui figurera sur votre certificat.</p>
+            <div class="field-group">
+              <label for="name-input">Nom complet ou pseudonyme</label>
+              <input type="text" id="name-input" placeholder="ex. John Doe" maxlength="80" autocomplete="off" />
+              <div class="field-error hidden" id="name-error"></div>
+            </div>
+            <div class="form-actions">
+              <button class="btn-primary" id="btn-name">Commencer l'examen <span class="btn-icon">→</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view" id="view-lang">
+      <div class="split-layout">
+        <div class="split-left">
+          <div class="split-left-inner">
+            <p class="eyebrow">Spécialité</p>
+            <h1>Choisissez votre domaine d'expertise</h1>
+            <p class="aside-desc">Chaque certification évalue des compétences avancées propres au langage.</p>
+            <div class="aside-stats">
+              <div class="stat">
+                <span class="stat-num">4</span>
+                <span class="stat-label">Spécialités</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">5</span>
+                <span class="stat-label">Questions</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">100%</span>
+                <span class="stat-label">Requis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="split-right">
+          <div class="form-card">
+            <span class="form-step">Étape 2 / 3</span>
+            <h2>Langage de certification</h2>
+            <p class="form-hint">Sélectionnez le langage pour votre examen.</p>
+            <div class="lang-grid">
+              <button class="lang-card" data-lang="python">
+                <span class="lang-title">Python</span>
+                <span class="lang-badge">Expert</span>
+              </button>
+              <button class="lang-card" data-lang="php">
+                <span class="lang-title">PHP</span>
+                <span class="lang-badge">Expert</span>
+              </button>
+              <button class="lang-card" data-lang="java">
+
+                <span class="lang-title">Java</span>
+                <span class="lang-badge">Expert</span>
+              </button>
+              <button class="lang-card" data-lang="c++">
+                <span class="lang-title">C++</span>
+                <span class="lang-badge">Expert</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view" id="view-quiz">
+      <div class="quiz-layout">
+        <div class="quiz-sidebar">
+          <div class="quiz-sidebar-inner">
+            <h2 id="quiz-lang-label"></h2>
+            <div class="quiz-progress-wrap">
+              <div class="quiz-progress-track">
+                <div class="quiz-progress-fill" id="quiz-progress-fill" style="width:0%"></div>
+              </div>
+              <span class="quiz-counter" id="quiz-counter"></span>
+            </div>
+            <p class="quiz-sidebar-note">Répondez correctement à toutes les questions pour obtenir votre certificat.</p>
+          </div>
+        </div>
+        <div class="quiz-main">
+          <div class="question-card">
+            <span class="question-label" id="question-label"></span>
+            <p class="question-text" id="question-text"></p>
+            <div id="question-code" class="code-block hidden"></div>
+            <div class="choices" id="choices"></div>
+            <div class="quiz-nav">
+              <button class="btn-ghost" id="btn-prev">← Précédent</button>
+              <div class="field-error hidden" id="quiz-error"></div>
+              <button class="btn-primary" id="btn-next">Suivant <span class="btn-icon">→</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="view" id="view-success">
+      <div class="success-layout">
+        <div class="success-card">
+          <div class="success-icon-wrap"><span class="success-icon">✓</span></div>
+          <h1>Félicitations, <strong id="success-name"></strong>&nbsp;!</h1>
+          <p class="success-desc" id="success-desc"></p>
+          <div class="success-actions">
+            <button class="btn-primary" id="btn-download">⬇&nbsp; Télécharger mon certificat</button>
+            <button class="btn-ghost" id="btn-restart">Nouvelle certification</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Leet Institute. Tous droits réservés.</span>
+      <span>leet-institute.bzh</span>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

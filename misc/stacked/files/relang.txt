@@ -1,0 +1,72 @@
+## Special chars and tokens:
+#   \n  - newline
+#   \t  - Tab
+#   \0  - null char
+#   .   - any token in lang (default:[a-zA-Z0-9 ])
+#   \s  - any white space
+#   \S  - any non white space token in lang (default:[a-zA-Z0-9])
+#   \d  - digit 0-9
+#   \D  - non digit 0-9
+#   \w  - word chat a-zA-Z
+#   \W  - non word chat a-zA-Z
+#   [a] - char in [...]
+#   [a-z]   - char in the range in [...]
+#   (a) - capturing group (pushed to the stack)
+#   {3} - 3 match
+#   {3,}- 3 or more match
+#   {3,6}   - between 3 and 6 match
+#   <0-99>  - 0 to 99 to int, left and right args are digit and output is a digit range 
+#   ?   - 0 or 1 match
+#   +   - 1 or more match
+#   *   - 0 or more match
+#   |   - or
+
+## Operators
+#   ;   - skip
+#   +   - plus
+#   -   - minus
+#   *   - multiply
+#   %   - divide
+#   ^   - less than
+#   =   - equal
+#   §   - deploy (1 op)
+#   &   - match (2 op)
+#   _   - search (2 op)
+#   ~   - replace (3 op)
+#   °   - to int
+#   "   - to string
+#   |   - duplicate (2 op)
+#   ¤   - get
+#   $   - input
+#   @   - map function ("1" op, gets more depending on given operator arity)
+#   /   - reduce
+#   ?   - filter
+#   !   - print
+#   :   - reverse
+#   µ   - function from name
+
+## Others
+#   #   - comment
+
+How to read a program ?
+This is a stack based language. It is evaluated right to left.
+Example program: = - 3 2 1
+         Trace:
+                    1 is pushed on stack
+                    2 is pushed on stack
+                    3 is pushed on stack
+                    - is pushed on stack
+                        - is an operator of arity 2
+                            3 and 2 are pop-ed
+                        3-2 is pushed on stack
+                    = is pushed on stack
+                        = is an operator of arity 2
+                            1 and 1 are pop-ed
+                        True is pushed on stack
+
+         Output: True
+
+You are advised to test "Yet Another Question/Answer Coding Challenge" to learn more about the edge cases of the language
+
+Any questions?
+Answer yourself by testing your questions in the sandbox!

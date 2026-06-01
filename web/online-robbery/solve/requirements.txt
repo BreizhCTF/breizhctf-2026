@@ -1,0 +1,4 @@
+requests
+pyjwt
+hexdump
+git+https://github.com/wdahlenburg/pyhprof.git

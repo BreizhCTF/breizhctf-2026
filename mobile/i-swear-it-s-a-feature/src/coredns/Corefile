@@ -1,0 +1,9 @@
+.:53 {
+    hosts {
+        10.0.2.2 forum.ctf.bzh
+        fallthrough
+    }
+    forward . /etc/resolv.conf
+    log
+    errors
+}

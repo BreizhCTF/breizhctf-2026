@@ -1,0 +1,51 @@
+name: "Born to be Expert"
+author: "crazycat256"
+category: Web
+description: |-
+    ![GIF](https://media.tenor.com/bQCHJwgCNuMAAAAd/kitten-cat.gif)
+    
+    Vous venez de découvrir ce site qui délivre des diplomes d'expert dans différents langages de programmation. 
+    Non content de douter de la pertinence des QCM proposés, vous vous posez également des questions concernant la sécurité du site...
+
+    Auteur : [crazycat256](https://discord.com/users/574252733545054211)
+
+attribution: 'Auteur : [crazycat256](https://discord.com/users/574252733545054211)'
+
+# Liste des fichiers à fournirs aux joueurs
+files: []
+
+flags:
+    - BZHCTF{Syst3m_c0mm4nd5_4nd_us3r_1nput5_d0n't_g0_w3ll_t0g3th3r!}
+
+# Dépendence avec d'autres challenges
+requirements: []
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+    - Web
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - Command Injection
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    template_name: born-to-be-expert
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+# connection_info: nc exemple-tcp.chall.ctf.bzh 1337
+
+version: "0.1"

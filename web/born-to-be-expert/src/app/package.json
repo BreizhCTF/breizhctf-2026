@@ -1,0 +1,16 @@
+{
+  "name": "born-to-be-expert",
+  "version": "1.0.0",
+  "description": "Leet Institute — certification platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.0",
+    "express": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

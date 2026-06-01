@@ -1,0 +1,20 @@
+services:
+  challenge:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile
+    ports:
+      - "1337:1337" # WebSocket Proxy exposed to Challenger
+    devices:
+      - "/dev/kvm"
+    cap_add:
+      - SYS_ADMIN
+
+  client:
+    build:
+      context: .
+      dockerfile: frontend.Dockerfile
+    ports:
+      - "8080:80" # Web interface exposed to Challenger
+    depends_on:
+      - challenge

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="vault_bg">#FF0F0F1A</color>
+    <color name="vault_surface">#FF1A1A2E</color>
+    <color name="vault_card">#FF222240</color>
+    <color name="vault_primary">#FF16213E</color>
+    <color name="vault_accent">#FF4CAF50</color>
+    <color name="vault_accent_dark">#FF388E3C</color>
+    <color name="vault_text">#FFECECEC</color>
+    <color name="vault_text_muted">#FF8A8AA0</color>
+    <color name="vault_divider">#FF2A2A45</color>
+    <color name="vault_input_bg">#FF1E1E35</color>
+    <color name="vault_error">#FFEF5350</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <color name="cat_email">#FF42A5F5</color>
+    <color name="cat_dev">#FF7E57C2</color>
+    <color name="cat_cloud">#FFFF7043</color>
+    <color name="cat_network">#FF26C6DA</color>
+    <color name="cat_media">#FFEC407A</color>
+    <color name="cat_server">#FF78909C</color>
+    <color name="cat_ctf">#FFFFCA28</color>
+    <color name="cat_secret">#FF4CAF50</color>
+</resources>

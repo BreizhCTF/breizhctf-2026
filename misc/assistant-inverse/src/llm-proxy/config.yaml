@@ -1,0 +1,32 @@
+model_list:
+  - model_name: google/gemma-4-E4B-it  # Model name tools_server.py uses
+    litellm_params:
+      model: openai/google/gemma-4-E4B-it
+      api_base: "os.environ/BACKEND_1"
+      api_key: "os.environ/BACKEND_1_API_KEY"
+      rpm: 6
+  - model_name: google/gemma-4-E4B-it
+    litellm_params:
+      model: openai/google/gemma-4-E4B-it
+      api_base: "os.environ/BACKEND_2"
+      api_key: "os.environ/BACKEND_2_API_KEY"
+      rpm: 6
+  - model_name: google/gemma-4-E4B-it
+    litellm_params:
+      model: openai/google/gemma-4-E4B-it
+      api_base: "os.environ/BACKEND_3"
+      api_key: "os.environ/BACKEND_2_API_KEY"
+      rpm: 6
+
+router_settings:
+  routing_strategy: "simple-shuffle"
+  enable_pre_call_checks: true
+
+litellm_settings:
+  max_parallel_requests: 5  # Global concurrent requests limit
+
+general_settings:
+  master_key: "api-key"
+  # allow_unauthenticated: true
+  # This allows the extra_body parameters to pass through to your VLLM/GPU servers
+  drop_params: false

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Caviar Yacht Club | Plan de Pont</title>
+    <style>
+        @font-face {
+            font-family: 'Cinzel';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/static/fonts/cinzel-400.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Cinzel';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('/static/fonts/cinzel-700.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Playfair Display';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/static/fonts/playfair-display-400.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Playfair Display';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('/static/fonts/playfair-display-700.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Playfair Display';
+            font-style: italic;
+            font-weight: 400;
+            font-display: swap;
+            src: url('/static/fonts/playfair-display-italic-400.ttf') format('truetype');
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --dark-blue: #000c18;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(212, 175, 55, 0.3);
+            --ivory: #FFFFF0;
+            --active-cabin: #00FFCC;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #001f3f 0%, var(--dark-blue) 100%);
+            color: var(--ivory);
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .deck-container {
+            width: 95%;
+            max-width: 1000px;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            letter-spacing: 10px;
+            color: var(--gold);
+            margin: 0 0 5px 0;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .map-section {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .yacht-svg {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(0, 12, 24, 0.8));
+        }
+
+        .cabin {
+            fill: none;
+            stroke: var(--border);
+            stroke-width: 1;
+            transition: all 0.3s;
+        }
+
+        .cabin.highlight {
+            fill: var(--gold);
+            stroke: var(--gold);
+            filter: drop-shadow(0 0 8px var(--gold));
+            opacity: 0.8;
+        }
+
+        .cabin.active-result {
+            fill: var(--active-cabin);
+            stroke: var(--active-cabin);
+            filter: drop-shadow(0 0 15px var(--active-cabin));
+            opacity: 1;
+        }
+
+        .yacht-outline {
+            fill: rgba(255, 255, 255, 0.02);
+            stroke: var(--gold);
+            stroke-width: 1.5;
+            opacity: 0.6;
+        }
+
+        .scan-line {
+            stroke: var(--active-cabin);
+            stroke-width: 2;
+            opacity: 0;
+            filter: drop-shadow(0 0 10px var(--active-cabin));
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        input {
+            background: #000;
+            border: 1px solid var(--border);
+            color: var(--gold);
+            padding: 12px 20px;
+            width: 300px;
+            font-family: inherit;
+            font-size: 1rem;
+            border-radius: 5px;
+            margin-right: 10px;
+            outline: none;
+        }
+
+        button {
+            background: var(--gold);
+            color: #000;
+            border: none;
+            padding: 12px 25px;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #F5D76E;
+            box-shadow: 0 0 15px var(--gold);
+        }
+
+        #locator-msg {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            min-height: 1.5rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 15px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            letter-spacing: 2px;
+        }
+
+        .legend-item span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin-right: 5px;
+            border: 1px solid var(--border);
+        }
+
+        .admin-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: var(--gold); }
+    </style>
+</head>
+<body>
+    <div class="deck-container">
+        <h1>GOLDEN CAVIAR</h1>
+        <div class="subtitle">Gestionnaire de Pont & Localisation de Suites</div>
+
+        <div class="map-section">
+            <h3 style="font-family: 'Cinzel'; color: var(--gold); margin-top: 0; letter-spacing: 4px;">PLAN DU PONT SUPÉRIEUR</h3>
+
+            <svg class="yacht-svg" viewBox="0 0 800 300" id="yacht-map">
+                <path class="yacht-outline" d="M50,150 C50,50 150,40 400,40 L700,50 C750,55 780,100 780,150 C780,200 750,245 700,250 L400,260 C150,260 50,250 50,150 Z" />
+                <line x1="400" y1="40" x2="400" y2="260" stroke="rgba(212,175,55,0.2)" stroke-dasharray="5,5" />
+                <text x="100" y="155" fill="rgba(212,175,55,0.3)" font-family="Cinzel" font-size="20">PROUE</text>
+
+                <g id="cabins-port">
+                    <rect id="cabin-p1" class="cabin" x="250" y="70" width="40" height="30" rx="3" />
+                    <rect id="cabin-p2" class="cabin" x="310" y="70" width="40" height="30" rx="3" />
+                    <rect id="cabin-p3" class="cabin" x="370" y="70" width="40" height="30" rx="3" />
+                    <rect id="cabin-p4" class="cabin" x="430" y="70" width="40" height="30" rx="3" />
+                    <rect id="cabin-p5" class="cabin" x="490" y="70" width="40" height="30" rx="3" />
+                    <rect id="cabin-p6" class="cabin" x="550" y="70" width="40" height="30" rx="3" />
+                </g>
+
+                <g id="cabins-starboard">
+                    <rect id="cabin-s1" class="cabin" x="250" y="200" width="40" height="30" rx="3" />
+                    <rect id="cabin-s2" class="cabin" x="310" y="200" width="40" height="30" rx="3" />
+                    <rect id="cabin-s3" class="cabin" x="370" y="200" width="40" height="30" rx="3" />
+                    <rect id="cabin-s4" class="cabin" x="430" y="200" width="40" height="30" rx="3" />
+                    <rect id="cabin-s5" class="cabin" x="490" y="200" width="40" height="30" rx="3" />
+                    <rect id="cabin-s6" class="cabin" x="550" y="200" width="40" height="30" rx="3" />
+                </g>
+
+                <line id="scanner" class="scan-line" x1="100" y1="40" x2="100" y2="260" />
+            </svg>
+
+            <div class="legend">
+                <div class="legend-item"><span style="border-color: var(--gold)"></span> AILE BÂBORD</div>
+                <div class="legend-item"><span style="border-color: var(--active-cabin)"></span> AILE TRIBORD</div>
+            </div>
+
+            <div id="locator-msg">PRÊT POUR LOCALISATION...</div>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="ticketInput" placeholder="Saisir ticket (Hexa)...">
+            <button onclick="locateCabin()">OÙ EST MA CABINE ?</button>
+        </div>
+
+        <div class="admin-footer">
+            <h3 style="font-family: 'Cinzel'; font-size: 0.7rem; letter-spacing: 4px; opacity: 0.6; margin-bottom: 20px;">ESPACE MEMBRE — ACCÈS SÉCURISÉ</h3>
+            <form action="/login" method="POST" style="display: flex; justify-content: center; gap: 10px; align-items: center;">
+                <select name="username" style="width: 280px; font-size: 0.8rem; padding: 8px; background: #000; color: var(--gold); border: 1px solid var(--border); border-radius: 5px; outline: none; cursor: pointer; font-family: 'Playfair Display', serif;">
+                    <option value="ceo_01">Sa Grandeur Sérénissime l'Amiral d'Or</option>
+                    <option value="ceo_02">Son Excellence le Baron du Caviar Beluga</option>
+                    <option value="ceo_03">Sa Majesté Impériale des Sept Mers</option>
+                    <option value="ceo_04">Le Vénérable Archiduc de la Flotte Dorée</option>
+                    <option value="ceo_05">Son Illustre Altesse du Pont de Diamant</option>
+                </select>
+                <input type="password" name="password" placeholder="Code de Sécurité..." style="width: 200px; font-size: 0.8rem; padding: 8px;">
+                <button type="submit" style="padding: 8px 15px; font-size: 0.8rem;">DÉVERROUILLER</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        async function locateCabin() {
+            const ticket = document.getElementById('ticketInput').value;
+            const msg = document.getElementById('locator-msg');
+            const scanLine = document.getElementById('scanner');
+            const allCabins = document.querySelectorAll('.cabin');
+
+            if (!ticket) return;
+
+            allCabins.forEach(c => c.classList.remove('active-result', 'highlight'));
+            msg.innerHTML = "INTERROGATION DES SERVEURS DRM...";
+            msg.style.color = "var(--gold)";
+
+            scanLine.style.opacity = "1";
+            let scanPos = 100;
+            const scanInt = setInterval(() => {
+                scanPos += 15;
+                if (scanPos > 700) scanPos = 100;
+                scanLine.setAttribute('x1', scanPos);
+                scanLine.setAttribute('x2', scanPos);
+
+                if (Math.random() > 0.7) {
+                    const randomCabin = allCabins[Math.floor(Math.random() * allCabins.length)];
+                    randomCabin.classList.toggle('highlight');
+                }
+            }, 50);
+
+            try {
+                const res = await fetch('/api/verify', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ ticket: ticket })
+                });
+                const data = await res.json();
+
+                clearInterval(scanInt);
+                scanLine.style.opacity = "0";
+                allCabins.forEach(c => c.classList.remove('highlight'));
+
+                setTimeout(() => {
+                    const suiteNum = Math.floor(Math.random() * 6) + 1;
+                    if (data.side === "Tribord") {
+                        const target = document.getElementById(`cabin-s${suiteNum}`);
+                        target.classList.add('active-result');
+                        msg.innerHTML = `SUITE ${300 + suiteNum} — AILE TRIBORD IDENTIFIÉE`;
+                        msg.style.color = "var(--active-cabin)";
+                    } else if (data.side === "Bâbord") {
+                        const target = document.getElementById(`cabin-p${suiteNum}`);
+                        target.classList.add('active-result');
+                        msg.innerHTML = `SUITE ${400 + suiteNum} — AILE BÂBORD IDENTIFIÉE`;
+                        msg.style.color = "var(--gold)";
+                    } else {
+                        msg.innerHTML = data.error || "ERREUR : TICKET NON RECONNU.";
+                        msg.style.color = "#ff4d4d";
+                    }
+                }, 300);
+            } catch (e) {
+                clearInterval(scanInt);
+                msg.innerHTML = "ERREUR SYSTÈME : CONCIERGERIE OFFLINE.";
+                msg.style.color = "#ff4d4d";
+            }
+        }
+    </script>
+</body>
+</html>

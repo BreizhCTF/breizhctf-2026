@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>DAFT CLUB :: Members Only</title>
+<style type="text/css">
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #1c1c1c;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='1' height='1' x='0' y='0' fill='%23222' /%3E%3Crect width='1' height='1' x='2' y='2' fill='%23222' /%3E%3C/svg%3E");
+    color: #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── OUTER SHELL ─────────────────────────────────────────── */
+.shell {
+    width: 780px;
+    background: #222222;
+    border: 1px solid #111;
+    box-shadow:
+        0 0 0 1px #333,
+        4px 4px 0 0 #111,
+        8px 8px 20px rgba(0,0,0,0.8);
+    position: relative;
+}
+
+/* ── TOP BAR ─────────────────────────────────────────────── */
+.top-bar {
+    background: #1a1a1a;
+    border-bottom: 2px solid #111;
+    display: flex;
+    align-items: stretch;
+    height: 52px;
+}
+
+/* LCD chip on the left */
+.lcd-chip {
+    background: #0a1a0a;
+    border-right: 2px solid #111;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* subtle scan-line texture */
+    background-image: repeating-linear-gradient(
+        180deg,
+        transparent 0px, transparent 3px,
+        rgba(0,0,0,0.3) 3px, rgba(0,0,0,0.3) 4px
+    );
+}
+.lcd-chip::after {
+    content: "";
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid #0d2a0d;
+    pointer-events: none;
+}
+.lcd-text {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 13px;
+    color: #39ff14;
+    text-shadow:
+        0 0 6px #39ff14,
+        0 0 14px #39ff14,
+        0 0 28px #00cc00;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Grunge logo on the right */
+.grunge-logo {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+}
+.grunge-logo-text {
+    font-family: Arial Black, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: #e8e8e8;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    position: relative;
+    /* spray-paint roughness via text-shadow layers */
+    text-shadow:
+        -1px -1px 0 #555,
+         1px -1px 0 #555,
+        -1px  1px 0 #555,
+         1px  1px 0 #555,
+        -2px  0   0 #3a3a3a,
+         2px  0   0 #3a3a3a,
+         0   -2px 0 #3a3a3a,
+         0    2px 0 #3a3a3a,
+         3px  3px 6px rgba(0,0,0,0.6);
+    filter: url(#grunge-filter);
+}
+.grunge-logo-text em {
+    font-style: normal;
+    color: #c0392b;
+    text-shadow:
+        -1px -1px 0 #7a1a1a,
+         1px -1px 0 #7a1a1a,
+        -1px  1px 0 #7a1a1a,
+         1px  1px 0 #7a1a1a,
+        -2px  0   0 #5a1010,
+         2px  0   0 #5a1010,
+         0   -2px 0 #5a1010,
+         0    2px 0 #5a1010,
+         3px  3px 8px rgba(0,0,0,0.8),
+         0    0  12px rgba(180,30,30,0.25);
+}
+
+/* ── BODY AREA ───────────────────────────────────────────── */
+.body-area {
+    display: flex;
+    height: 480px;
+    border-bottom: 2px solid #111;
+}
+
+/* ── LEFT PANEL ──────────────────────────────────────────── */
+.left-panel {
+    width: 340px;
+    flex-shrink: 0;
+    background: #1e1e1e;
+    border-right: 2px solid #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 26px;
+    gap: 28px;
+}
+
+/* Membership card */
+.member-card {
+    width: 100%;
+    height: 185px;
+    background:
+        linear-gradient(160deg, #1a1a1a 0%, #0e0e0e 60%, #181818 100%);
+    border: 1px solid #333;
+    border-radius: 10px;
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.7),
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        inset 0 -1px 0 rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Rainbow stripe */
+.card-stripe {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 28px;
+    background: linear-gradient(
+        90deg,
+        #e74c3c,
+        #e67e22,
+        #f1c40f,
+        #2ecc71,
+        #3498db,
+        #9b59b6,
+        #e74c3c
+    );
+    opacity: 0.85;
+}
+
+/* Worn texture overlay */
+.card-texture {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        repeating-linear-gradient(
+            112deg,
+            transparent 0px,
+            transparent 8px,
+            rgba(255,255,255,0.012) 8px,
+            rgba(255,255,255,0.012) 9px
+        );
+    border-radius: 10px;
+}
+
+/* Graffiti text on card */
+.card-graffiti {
+    position: absolute;
+    top: 26px;
+    left: 18px;
+    right: 18px;
+}
+.card-graffiti-small {
+    font-family: Arial Black, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 11px;
+    color: #555;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+.card-graffiti-main {
+    font-family: Arial Black, Arial, sans-serif;
+    font-weight: 900;
+    font-size: 34px;
+    line-height: 1;
+    color: #c0392b;
+    text-transform: lowercase;
+    letter-spacing: -1px;
+    text-shadow:
+        -2px -2px 0 #7a1a1a,
+         2px -2px 0 #7a1a1a,
+        -2px  2px 0 #7a1a1a,
+         2px  2px 0 #7a1a1a,
+         0    0   8px rgba(180,30,30,0.5),
+         3px  4px 0 rgba(0,0,0,0.5);
+    transform: rotate(-2deg);
+    display: inline-block;
+}
+.card-graffiti-main span {
+    color: #e8e8e8;
+    text-shadow:
+        -2px -2px 0 #333,
+         2px -2px 0 #333,
+        -2px  2px 0 #333,
+         2px  2px 0 #333,
+         3px  4px 0 rgba(0,0,0,0.5);
+}
+
+/* Card chip */
+.card-chip {
+    position: absolute;
+    top: 28px;
+    right: 18px;
+    width: 30px;
+    height: 22px;
+    background: linear-gradient(135deg, #b8a040 0%, #d4b84a 35%, #9a8030 65%, #c8a840 100%);
+    border-radius: 3px;
+    border: 1px solid #8a7020;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+.card-chip::before {
+    content: "";
+    position: absolute;
+    top: 3px; left: 3px; right: 3px; bottom: 3px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 2px;
+}
+
+/* Card member line */
+.card-member-line {
+    position: absolute;
+    bottom: 34px;
+    left: 18px;
+    font-family: "Courier New", monospace;
+    font-size: 9px;
+    color: #444;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Input field */
+.input-wrap {
+    width: 100%;
+    position: relative;
+}
+.key-input {
+    width: 100%;
+    background: #f0f0f0;
+    color: #111;
+    border: none;
+    border-radius: 0;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    padding: 14px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+    display: block;
+    box-shadow:
+        inset 2px 2px 4px rgba(0,0,0,0.2),
+        inset -1px -1px 2px rgba(255,255,255,0.8),
+        0 0 0 2px #111,
+        0 0 0 3px #333;
+}
+.key-input::placeholder {
+    color: #999;
+    letter-spacing: 2px;
+}
+.key-input:focus {
+    background: #ffffff;
+    box-shadow:
+        inset 2px 2px 4px rgba(0,0,0,0.15),
+        0 0 0 2px #111,
+        0 0 0 3px #39ff14,
+        0 0 12px rgba(57,255,20,0.2);
+}
+
+/* ── RIGHT PANEL ─────────────────────────────────────────── */
+.right-panel {
+    flex: 1;
+    background: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 38px 36px;
+    gap: 0;
+}
+
+.instructions-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 7px;
+    color: #444;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #2a2a2a;
+    padding-bottom: 10px;
+}
+
+.lang-block {
+    margin-bottom: 22px;
+    padding-left: 14px;
+    border-left: 2px solid #2e2e2e;
+    position: relative;
+}
+.lang-block:last-child { margin-bottom: 0; }
+
+.lang-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 6px;
+    color: #39ff14;
+    text-shadow: 0 0 6px #39ff14;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+.lang-text {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+}
+.lang-text strong { color: #bbb; font-weight: normal; }
+
+/* ── BOTTOM BAR ──────────────────────────────────────────── */
+.bottom-bar {
+    background: #1a1a1a;
+    border-top: 1px solid #111;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+}
+
+.bottom-bar-left {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 6px;
+    color: #2d2d2d;
+    letter-spacing: 1px;
+    line-height: 1.8;
+}
+
+/* GO button */
+.go-btn {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: #39ff14;
+    background: #0a1a0a;
+    border: 2px solid #39ff14;
+    padding: 10px 26px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow:
+        0 0 8px rgba(57,255,20,0.4),
+        0 0 20px rgba(57,255,20,0.15),
+        inset 0 0 8px rgba(57,255,20,0.05);
+    text-shadow:
+        0 0 8px #39ff14,
+        0 0 20px #39ff14;
+    transition: none;
+    background-image: repeating-linear-gradient(
+        180deg,
+        transparent 0px, transparent 3px,
+        rgba(0,0,0,0.2) 3px, rgba(0,0,0,0.2) 4px
+    );
+    position: relative;
+    top: 0;
+}
+.go-btn:hover {
+    background-color: #0d280d;
+    box-shadow:
+        0 0 14px rgba(57,255,20,0.7),
+        0 0 30px rgba(57,255,20,0.3),
+        inset 0 0 12px rgba(57,255,20,0.1);
+}
+.go-btn:active {
+    top: 1px;
+    box-shadow:
+        0 0 6px rgba(57,255,20,0.5),
+        inset 0 0 8px rgba(57,255,20,0.15);
+}
+
+/* SVG filter for grunge effect on logo */
+.svg-filters { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+</style>
+</head>
+<body>
+
+<!-- SVG filters for grunge texture -->
+<svg class="svg-filters" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="grunge-filter" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<form method="POST" action="/redeem">
+<div class="shell">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="lcd-chip">
+      <span class="lcd-text">DAFTCLUB</span>
+    </div>
+    <div class="grunge-logo">
+      <span class="grunge-logo-text"><em>daft</em> Club</span>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body-area">
+
+    <!-- LEFT -->
+    <div class="left-panel">
+
+      <!-- Membership card -->
+      <div class="member-card">
+        <div class="card-texture"></div>
+        <div class="card-graffiti">
+          <div class="card-graffiti-small">Membership Card</div>
+          <div class="card-graffiti-main"><em>daft</em> <span>Club</span></div>
+        </div>
+        <div class="card-chip"></div>
+        <div class="card-member-line">Member No. &#183;&#183;&#183;&#183; &#183;&#183;&#183;&#183; &#183;&#183;&#183;&#183;</div>
+        <div class="card-stripe"></div>
+      </div>
+
+      <!-- Key input -->
+      <div class="input-wrap">
+        <input
+          class="key-input"
+          type="text"
+          name="key"
+          maxlength="22"
+          placeholder="DAFT-XXXXX-XXXXX-XXXXX"
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-panel">
+      <div class="instructions-title">// ACCESS INSTRUCTIONS</div>
+
+      <div class="lang-block">
+        <div class="lang-label">EN</div>
+        <div class="lang-text">
+          Enter the <strong>unique password</strong> printed on the back of your
+          Daft Club membership card. Scratch off the silver panel to reveal your code,
+          then type it above exactly as shown.
+        </div>
+      </div>
+
+      <div class="lang-block">
+        <div class="lang-label">FR</div>
+        <div class="lang-text">
+          Entrez le <strong>mot de passe unique</strong> imprim&eacute; au dos de votre
+          carte membre Daft Club. Grattez le panneau argent&eacute; pour r&eacute;v&eacute;ler
+          votre code, puis saisissez-le tel quel.
+        </div>
+      </div>
+
+      <div class="lang-block">
+        <div class="lang-label">ES</div>
+        <div class="lang-text">
+          Introduzca la <strong>contrase&ntilde;a &uacute;nica</strong> impresa en el reverso
+          de su tarjeta de miembro Daft Club. Raspe el panel plateado para revelar su
+          c&oacute;digo y escr&iacute;balo exactamente como aparece.
+        </div>
+      </div>
+
+      <div class="lang-block">
+        <div class="lang-label">JP</div>
+        <div class="lang-text">
+          Daft Club&#12513;&#12531;&#12496;&#12540;&#12471;&#12483;&#12503;&#12459;&#12540;&#12489;&#12398;&#35299;&#31034;&#12399;&#12289;&#12459;&#12540;&#12489;&#35299;&#31034;&#12399;&#12289;&#12459;&#12540;&#12489;&#32938;&#20966;&#12398;&#12471;&#12523;&#12496;&#12540;&#12497;&#12493;&#12523;&#12434;&#21069;&#12365;&#20986;&#12375;&#12390;&#35299;&#31034;&#12375;&#12289;<strong>&#22305;&#26377;&#12398;&#12497;&#12473;&#12527;&#12540;&#12489;</strong>&#12434;&#20165;&#35336;&#12395;&#20837;&#21147;&#12375;&#12390;&#12367;&#12384;&#12373;&#12356;&#12290;
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div class="bottom-bar-left">
+      DAFT CLUB &copy; 2001<br>
+      MEMBERS ONLY &#183; UNAUTHORIZED ACCESS PROHIBITED
+    </div>
+    <button class="go-btn" type="submit">GO</button>
+  </div>
+
+</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+qemu-qom:
+  type: web
+  title: "The QEMU Object Model (QOM)"
+  url: "https://www.qemu.org/docs/master/devel/qom.html"
+  organization: "QEMU Project"
+  date: 2025
+
+qemu-save:
+  type: web 
+  title: "Migration Framework"
+  url: https://www.qemu.org/docs/master/devel/migration/main.html#general-advice-for-device-developers
+  date: 2025
+  organization: "QEMU Project"

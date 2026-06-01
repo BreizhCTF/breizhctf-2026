@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}Tableau de bord — Direction{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h2>Tableau de bord</h2>
+  <p>Vue d'ensemble de l'établissement pénitentiaire — Pénitentiaire de la Santé, Paris</p>
+</div>
+
+<div class="grid grid-4 mb-6">
+  <div class="kpi-card">
+    <div class="kpi-label">Détenus incarcérés</div>
+    <div class="kpi-value">{{ stats.get('totalInmates', '—') }}</div>
+    <div class="kpi-sub">Effectif actuel</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">En quartier d'isolement</div>
+    <div class="kpi-value" style="color: var(--danger)">{{ stats.get('inSolitary', '—') }}</div>
+    <div class="kpi-sub">Mesures actives</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Incidents ouverts</div>
+    <div class="kpi-value" style="color: var(--warning)">{{ stats.get('openIncidents', '—') }}</div>
+    <div class="kpi-sub">En attente de traitement</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-label">Visites en attente</div>
+    <div class="kpi-value" style="color: var(--accent)">{{ stats.get('pendingVisits', '—') }}</div>
+    <div class="kpi-sub">À approuver</div>
+  </div>
+</div>
+
+<div class="grid grid-2">
+  <div class="card">
+    <div class="card-title">Statut des blocs</div>
+    {% if stats.get('blocs') %}
+      {% for bloc in stats.blocs %}
+      <div class="flex items-center justify-between mb-4" style="padding: 12px; background: var(--surface2); border-radius: 6px;">
+        <div>
+          <div style="font-weight: 600; font-size: 14px;">{{ bloc.name }}</div>
+          <div class="text-muted" style="font-size: 12px;">Aile {{ bloc.wing }}</div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="mono" style="font-size: 13px;">{{ bloc.occupancy }}/{{ bloc.capacity }}</span>
+          {% if bloc.isLocked %}
+            <span class="badge badge-red">CONFINEMENT</span>
+          {% else %}
+            <span class="badge badge-green">NORMAL</span>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p class="text-muted" style="font-size: 14px;">Données indisponibles</p>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <div class="card-title">Activité récente</div>
+    {% if stats.get('recentIncidents') %}
+      {% for inc in stats.recentIncidents %}
+      <div class="flex items-center justify-between mb-4" style="padding: 10px 0; border-bottom: 1px solid var(--surface2);">
+        <div>
+          <div style="font-size: 13px; font-weight: 500;">{{ inc.type | upper }}</div>
+          <div class="text-muted" style="font-size: 12px;">{{ inc.description[:60] }}{% if inc.description|length > 60 %}…{% endif %}</div>
+        </div>
+        <span class="badge {{ 'badge-red' if inc.status == 'open' else 'badge-gray' }}">{{ inc.status }}</span>
+      </div>
+      {% endfor %}
+    {% else %}
+      <p class="text-muted" style="font-size: 14px;">Aucun incident récent</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

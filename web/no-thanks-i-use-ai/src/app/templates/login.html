@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pyro Chat - Connexion</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script defer src="/static/js/login.js"></script>
+  </head>
+  <body class="login-page">
+    <div class="login-container">
+      <h1 id="title">Pyro Chat</h1>
+      <p id="subtitle">Connectez-vous pour continuer</p>
+
+      <form id="authForm">
+        <input
+          type="text"
+          id="username"
+          placeholder="Nom d'utilisateur"
+          required
+          autocomplete="off"
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Mot de passe"
+          required
+        />
+        <button type="submit" id="submitBtn">Se connecter</button>
+      </form>
+
+      <p style="margin-top: 1rem; font-size: 0.9rem">
+        <a href="#" id="toggleMode">Pas de compte ? S'inscrire</a>
+      </p>
+    </div>
+  </body>
+</html>

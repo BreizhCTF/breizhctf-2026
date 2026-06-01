@@ -1,0 +1,8 @@
+[workspace]
+resolver = "3"
+members = ["crates/client", "crates/game", "crates/server", "crates/packets"]
+
+[profile.challenge]
+inherits = "release"
+opt-level = 1
+panic = "abort"

@@ -1,0 +1,40 @@
+name: 'Escape from ''Prison de la santé'''
+author: "Vozec"
+category: Web
+description: |-
+    ![prison](https://upload.wikimedia.org/wikipedia/commons/8/85/La-Sante-Prison-MCB.jpg)
+
+    Une prison est censée être sécurisée... mais certaines failles permettent parfois de s'évader.
+    Saurez-vous trouver le moyen de vous échapper ?
+
+    Utilisateur: `m.scofield`
+    Mot de passe: `FoxRiver1!`
+
+    Auteur : [Vozec](https://discord.com/users/1236956916903575666)
+
+attribution: 'Auteur : [Vozec](https://discord.com/users/1236956916903575666)'
+
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: escape-from-prison-de-la-sante
+    initial: 500
+    decay: 100
+    minimum: 50
+
+connection_info: https://escape.chall.ctf.bzh
+
+flags:
+    - BZHCTF{LetMeOutOfHere}
+
+tags:
+    - Moyen
+    - Node.js
+    - Python
+
+files:
+    - files/escape-from-prisondelasanté_players.zip
+requirements: []
+version: "0.1"

@@ -1,0 +1,53 @@
+name: "Seems Empty"
+author: "AntwortEinesLebens"
+category: Reverse
+description: |-
+  ![Empty Landscape](https://media.tenor.com/6gh9BQV36-QAAAAC/tumbleweed-boring.gif)
+
+  Lors d’un audit, un binaire étrange ne faisait qu’afficher un message banal.
+  Lors du tri initial, son comportement n'a déclenché aucun indicateur notable : pas d'activité réseau, pas d'écriture suspecte, rien qu'une sortie parfaitement inoffensive.
+  Relégué parmi les artefacts sans intérêt, il semble pourtant avoir été altéré par un groupe de malware.
+
+  Même ce qui semble vide peut cacher un secret.
+
+  Auteur : [AntwortEinesLebens](https://discord.com/users/776058684760522762)
+
+attribution: 'Auteur : [AntwortEinesLebens](https://discord.com/users/776058684760522762)'
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+  - files/seems-empty.pyc
+
+flags:
+  - BZHCTF{n07_r3411y_3mp7y}
+
+# Dépendence avec d'autres challenges
+requirements: []
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+  - Très Facile
+  - Python
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+  - Python
+  - StegCloack
+
+## Éviter de toucher à ce qui est en dessous ##
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+extra:
+  initial: 500
+  decay: 100
+  minimum: 50
+  # Pour les challenge à la demande uniquement
+  # À remplir par un sysadmin
+  # template_name: exemple-web
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+version: "0.1"

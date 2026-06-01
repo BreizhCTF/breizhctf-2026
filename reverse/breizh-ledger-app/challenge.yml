@@ -1,0 +1,53 @@
+name: "Breizh Ledger App"
+author: "deadc0de"
+category: Reverse
+description: |-
+    ![ledger](https://media.tenor.com/EpAEptpEywAAAAAi/big-holding.gif)
+
+    La société secrète des Galettes Saucisses a décidé que pour prouver qu'on est membre ça passe par une application pour device Ledger ?!
+
+    Auteur : [deadc0de](https://discord.com/users/742507022297333760)
+
+
+attribution: 'Auteur : [deadc0de](https://discord.com/users/742507022297333760)'
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/app.elf
+
+flags:
+    - BZHCTF{l3dg3r_4pdu_m4st3r_bzh!}
+
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - Ledger
+
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - Ledger App
+
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+    template_name: breizh-ledger-app
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-web
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+
+version: "0.1"

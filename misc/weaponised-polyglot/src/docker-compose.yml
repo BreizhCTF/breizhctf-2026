@@ -1,0 +1,5 @@
+services:
+  weaponised-polyglot:
+    build: .
+    ports:
+      - "80:80"

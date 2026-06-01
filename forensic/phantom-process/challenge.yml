@@ -1,0 +1,48 @@
+name: "Phantom Process"
+author: "Lamarr"
+category: Forensic
+description: |-
+    ![ghost](https://media.tenor.com/NarRX0m-o1IAAAAi/halloween-ghost.gif)
+
+    Le serveur d'opérations de **Breizh Aero Survey** (`ops-srv01`) présente un comportement réseau suspect depuis quelques jours : des connexions HTTPS sortantes régulières vers une IP inconnue.
+
+    L'équipe IT a capturé un dump mémoire avec LiME avant d'isoler la machine.
+
+    Votre mission :
+
+     - Identifiez le vecteur d'infection initianl
+     - Retrouvez l'implant qui tourne sur le serveur
+     - Extrayez le flag depuis les données exfiltrées
+
+     Auteur : [Lamarr](https://discord.com/users/361136527709044737)
+
+attribution: 'Auteur : [Lamarr](https://discord.com/users/361136527709044737)'
+
+files:
+    - files/evidence.xz
+    - files/debian-6.1.0-44.json.xz
+
+flags:
+    - BZHCTF{ph4nt0m_pr0c3ss_m3mfd_cr34t3}
+
+tags:
+    - Moyen
+    - Forensic
+    - Memory
+
+topics:
+    - memory forensics
+    - volatility3
+    - fileless malware
+    - memfd_create
+    - supply chain
+
+value: 500
+type: dynamic
+state: visible
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+version: "0.1"

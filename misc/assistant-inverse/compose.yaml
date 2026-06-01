@@ -1,0 +1,17 @@
+services:
+  tools:
+    build:
+      context: ./src/tools
+      dockerfile: tools.Dockerfile
+    ports:
+      - 5000:80
+    environment:
+      OPENAI_API_KEY: "api-key"
+      LLM_SERVER_URL: http://llm_proxy:4000
+
+  llm_proxy:
+    build:
+      context: ./src/llm-proxy
+      dockerfile: llm-proxy.Dockerfile
+    env_file:
+      - .llm_proxy.env

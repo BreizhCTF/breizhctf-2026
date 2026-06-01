@@ -1,0 +1,56 @@
+name: "Assistant Inverse"
+author: "Shynif"
+category: Misc
+description: |-
+    ![Gemini loading gif](https://media.tenor.com/1vz-4yuWJOIAAAAd/google-gemini-gemini.gif)
+
+    Nous avons entendu dire que vous aimiez l'IA :)
+
+    Nous aussi ! Et nous avons voulu équilibrer les chances en vous fournissant un petit assistant IA.
+
+    J'espère qu'il pourra répondre à tous vos besoins <3
+
+    Auteur : [Shynif](https://discord.com/users/387295848574353409)
+
+attribution: 'Auteur : [Shynif](https://discord.com/users/387295848574353409)'
+# Liste des fichiers à fournirs aux joueurs
+files: []
+flags:
+    - BZHCTF{I_F#%$ING_L<3VE_A1_T00LING!!!}
+
+# Dépendence avec d'autres challenges
+requirements: []
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - LLM
+# Les topics ne sont visibles que par les admins uniquement
+topics:
+    - LLM
+    - python
+    - tools
+    - rce
+
+## Éviter de toucher à ce qui est en dessous ##
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+extra:
+    template_name: assistant-inverse
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-web 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+connection_info: https://exemple-web.chall.ctf.bzh
+
+version: "0.1"

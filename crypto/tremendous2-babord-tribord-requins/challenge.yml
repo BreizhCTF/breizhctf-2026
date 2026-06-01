@@ -1,0 +1,39 @@
+name: "Tremendous - Bâbord, Tribord et Requins [2/2]"
+author: "Korabal"
+category: Crypto
+description: |-
+    ![SharkOrBattery](https://media.tenor.com/zIgWUByO16kAAAAd/tenor.gif)
+
+    Oh non, encore l'autre relou. Mais vous savez qu'il est important, alors vous vous concentrez. "On a une app ... requins ... batterie ... ticket ...".
+
+    Auteur : [Korabal](https://discord.com/users/1362851325615800573)
+
+attribution: 'Auteur : [Korabal](https://discord.com/users/1362851325615800573)'
+
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+    template_name: tremendous2-babord-tribord-requins
+
+
+flags:
+    - BZHCTF{they_stole_my_beautiful_cookie_very_sad}
+
+tags:
+    - Moyen
+    - RSA
+    - Yacht
+
+files:
+    - files/intercepted_data.json
+    - files/sources.zip
+    - files/README.md
+
+requirements: []
+version: "0.1"
+
