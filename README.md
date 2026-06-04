@@ -15,7 +15,7 @@
 
 - [AntwortEinesLebens](https://github.com/AntwortEinesLebens)
 - [crazycat256](https://www.crazycat256.fr/)
-- [deadc0de]()
+- [deadc0de](https://x.com/0xdeadc0de___)
 - [IHuggsy]()
 - [Korabal]()
 - [Lamarr]()
