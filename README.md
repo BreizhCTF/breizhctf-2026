@@ -34,7 +34,7 @@
 - ShAdE
 - Slinky
 - Sp4rky
-- Zeecka
+- [Zeecka](https://www.zeecka.fr)
 
 <h2 align="center">Scoreboard final</h2>
 
